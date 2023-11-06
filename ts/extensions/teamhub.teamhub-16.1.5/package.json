@@ -1,0 +1,2882 @@
+{
+	"name": "teamhub",
+	"version": "16.1.5",
+	"publisher": "TeamHub",
+	"engines": {
+		"vscode": "^1.70.0"
+	},
+	"icon": "resources/logo.png",
+	"galleryBanner": {
+		"color": "#013",
+		"theme": "dark"
+	},
+	"displayName": "GitLive",
+	"description": "Development teams merge faster with GitLive",
+	"homepage": "https://git.live",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/GitLiveApp/GitLive"
+	},
+	"bugs": {
+		"url": "https://github.com/GitLiveApp/GitLive/issues"
+	},
+	"categories": [
+		"SCM Providers"
+	],
+	"keywords": [
+		"real time",
+		"live sharing",
+		"remote share",
+		"share code",
+		"collaboration"
+	],
+	"tags": [
+		"real time",
+		"live",
+		"live share",
+		"live sharing",
+		"remote share",
+		"remote sharing",
+		"share code",
+		"collaboration",
+		"share",
+		"sharing",
+		"code discussion",
+		"cursor navigation",
+		"git",
+		"git diff",
+		"diff",
+		"git blame",
+		"pull request",
+		"git history",
+		"github",
+		"bitbucket",
+		"azure",
+		"azure devops",
+		"vscode must-have extensions",
+		"vscode",
+		"visual studio code"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./dist/main",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "gitlive",
+					"title": "GitLive",
+					"icon": "./resources/logo.svg"
+				}
+			]
+		},
+		"views": {
+			"gitlive": [
+				{
+					"id": "gitlive",
+					"name": ""
+				}
+			]
+		},
+		"configuration": {
+			"title": "GitLive",
+			"properties": {
+				"GitLive.Appear offline": {
+					"type": "boolean",
+					"scope": "application",
+					"markdownDescription": "When enabled you will appear as offline"
+				},
+				"GitLive.Special branches": {
+					"type": "string",
+					"scope": "application",
+					"markdownDescription": "Branches matching this regular expression will not be considered feature branches and appear at the top level in the repository view"
+				},
+				"GitLive.Issue tracker integration": {
+					"type": "string",
+					"scope": "application",
+					"enum": [
+						"Disabled",
+						"Enabled",
+						"Select issue tracker..."
+					]
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "git.live.switchTeamOrg",
+				"title": "Switch team",
+				"icon": "$(organization)"
+			},
+			{
+				"command": "git.live.switchTeamRepo",
+				"title": "Switch team",
+				"icon": "$(repo)"
+			},
+			{
+				"command": "git.live.tree.leftBase",
+				"title": "◉ ◧ Common ancestor",
+				"enablement": "git.live.tree.leftBase.enabled"
+			},
+			{
+				"command": "git.live.tree.leftBaseOff",
+				"title": "○ ◧ Common ancestor",
+				"enablement": "git.live.tree.leftBase.enabled"
+			},
+			{
+				"command": "git.live.tree.leftYourLocal",
+				"title": "◉ ◧ Your working tree",
+				"enablement": "git.live.tree.leftYourLocal.enabled"
+			},
+			{
+				"command": "git.live.tree.leftYourLocalOff",
+				"title": "○ ◧ Your working tree",
+				"enablement": "git.live.tree.leftYourLocal.enabled"
+			},
+			{
+				"command": "git.live.tree.leftTheirRemote",
+				"title": "◉ ◧ Their remote branch",
+				"enablement": "git.live.tree.leftTheirRemote.enabled"
+			},
+			{
+				"command": "git.live.tree.leftTheirRemoteOff",
+				"title": "○ ◧ Their remote branch",
+				"enablement": "git.live.tree.leftTheirRemote.enabled"
+			},
+			{
+				"command": "git.live.tree.rightTheirRemote",
+				"title": "◉ ◨ Their remote branch",
+				"enablement": "git.live.tree.rightTheirRemote.enabled"
+			},
+			{
+				"command": "git.live.tree.rightTheirRemoteOff",
+				"title": "○ ◨ Their remote branch",
+				"enablement": "git.live.tree.rightTheirRemote.enabled"
+			},
+			{
+				"command": "git.live.tree.rightTheirLocal",
+				"title": "◉ ◨ Their working tree",
+				"enablement": "git.live.tree.rightTheirLocal.enabled"
+			},
+			{
+				"command": "git.live.tree.rightTheirLocalOff",
+				"title": "○ ◨ Their working tree",
+				"enablement": "git.live.tree.rightTheirLocal.enabled"
+			},
+			{
+				"command": "git.live.pushedChanges",
+				"title": "✔ Pushed changes",
+				"enablement": "git.live.pushedChanges.enabled"
+			},
+			{
+				"command": "git.live.pushedChangesOff",
+				"title": "Pushed changes",
+				"enablement": "git.live.pushedChanges.enabled"
+			},
+			{
+				"command": "git.live.unpushedChanges",
+				"title": "✔ Unpushed changes",
+				"enablement": "git.live.unpushedChanges.enabled"
+			},
+			{
+				"command": "git.live.unpushedChangesOff",
+				"title": "Unpushed changes",
+				"enablement": "git.live.unpushedChanges.enabled"
+			},
+			{
+				"command": "git.live.todo",
+				"title": "✔ Todo",
+				"enablement": "git.live.todo.enabled"
+			},
+			{
+				"command": "git.live.todoOff",
+				"title": "Todo",
+				"enablement": "git.live.todo.enabled"
+			},
+			{
+				"command": "git.live.inProgress",
+				"title": "✔ In progress",
+				"enablement": "git.live.inProgress.enabled"
+			},
+			{
+				"command": "git.live.inProgressOff",
+				"title": "In progress",
+				"enablement": "git.live.inProgress.enabled"
+			},
+			{
+				"command": "git.live.stale",
+				"title": "✔ Stale",
+				"enablement": "git.live.stale.enabled"
+			},
+			{
+				"command": "git.live.staleOff",
+				"title": "Stale",
+				"enablement": "git.live.stale.enabled"
+			},
+			{
+				"command": "git.live.offline",
+				"title": "✔ Offline",
+				"enablement": "git.live.offline.enabled"
+			},
+			{
+				"command": "git.live.offlineOff",
+				"title": "Offline",
+				"enablement": "git.live.offline.enabled"
+			},
+			{
+				"command": "git.live.Last24Hours",
+				"title": "✔ 24 Hours",
+				"enablement": "git.live.Last24Hours.enabled"
+			},
+			{
+				"command": "git.live.Last24HoursOff",
+				"title": "24 Hours",
+				"enablement": "git.live.Last24Hours.enabled"
+			},
+			{
+				"command": "git.live.Last7Days",
+				"title": "✔ 7 Days",
+				"enablement": "git.live.Last7Days.enabled"
+			},
+			{
+				"command": "git.live.Last7DaysOff",
+				"title": "7 Days",
+				"enablement": "git.live.Last7Days.enabled"
+			},
+			{
+				"command": "git.live.Last2Weeks",
+				"title": "✔ 2 Weeks",
+				"enablement": "git.live.Last2Weeks.enabled"
+			},
+			{
+				"command": "git.live.Last2WeeksOff",
+				"title": "2 Weeks",
+				"enablement": "git.live.Last2Weeks.enabled"
+			},
+			{
+				"command": "git.live.Last4Weeks",
+				"title": "✔ 4 Weeks",
+				"enablement": "git.live.Last4Weeks.enabled"
+			},
+			{
+				"command": "git.live.Last4WeeksOff",
+				"title": "4 Weeks",
+				"enablement": "git.live.Last4Weeks.enabled"
+			},
+			{
+				"command": "git.live.Last3Months",
+				"title": "✔ 3 Months",
+				"enablement": "git.live.Last3Months.enabled"
+			},
+			{
+				"command": "git.live.Last3MonthsOff",
+				"title": "3 Months",
+				"enablement": "git.live.Last3Months.enabled"
+			},
+			{
+				"command": "git.live.Last12Months",
+				"title": "✔ 12 Months",
+				"enablement": "git.live.Last12Months.enabled"
+			},
+			{
+				"command": "git.live.Last12MonthsOff",
+				"title": "12 Months",
+				"enablement": "git.live.Last12Months.enabled"
+			},
+			{
+				"command": "git.live.Last3Years",
+				"title": "✔ 3 Years",
+				"enablement": "git.live.Last3Years.enabled"
+			},
+			{
+				"command": "git.live.Last3YearsOff",
+				"title": "3 Years",
+				"enablement": "git.live.Last3Years.enabled"
+			},
+			{
+				"command": "git.live.localDoc.rightTheirRemote",
+				"title": "◉ ◨ Their remote branch",
+				"enablement": "git.live.localDoc.rightTheirRemote.enabled"
+			},
+			{
+				"command": "git.live.localDoc.rightTheirRemoteOff",
+				"title": "○ ◨ Their remote branch",
+				"enablement": "git.live.localDoc.rightTheirRemote.enabled"
+			},
+			{
+				"command": "git.live.localDoc.rightTheirLocal",
+				"title": "◉ ◨ Their working tree",
+				"enablement": "git.live.localDoc.rightTheirLocal.enabled"
+			},
+			{
+				"command": "git.live.localDoc.rightTheirLocalOff",
+				"title": "○ ◨ Their working tree",
+				"enablement": "git.live.localDoc.rightTheirLocal.enabled"
+			},
+			{
+				"command": "git.live.localDoc.nonConflicting",
+				"title": "✔ Show non-conflicting changes",
+				"enablement": "git.live.localDoc.nonConflicting.enabled"
+			},
+			{
+				"command": "git.live.localDoc.nonConflictingOff",
+				"title": "Show non-conflicting changes",
+				"enablement": "git.live.localDoc.nonConflicting.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last24Hours",
+				"title": "✔ 24 Hours",
+				"enablement": "git.live.localDoc.Last24Hours.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last24HoursOff",
+				"title": "24 Hours",
+				"enablement": "git.live.localDoc.Last24Hours.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last7Days",
+				"title": "✔ 7 Days",
+				"enablement": "git.live.localDoc.Last7Days.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last7DaysOff",
+				"title": "7 Days",
+				"enablement": "git.live.localDoc.Last7Days.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last2Weeks",
+				"title": "✔ 2 Weeks",
+				"enablement": "git.live.localDoc.Last2Weeks.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last2WeeksOff",
+				"title": "2 Weeks",
+				"enablement": "git.live.localDoc.Last2Weeks.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last4Weeks",
+				"title": "✔ 4 Weeks",
+				"enablement": "git.live.localDoc.Last4Weeks.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last4WeeksOff",
+				"title": "4 Weeks",
+				"enablement": "git.live.localDoc.Last4Weeks.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last3Months",
+				"title": "✔ 3 Months",
+				"enablement": "git.live.localDoc.Last3Months.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last3MonthsOff",
+				"title": "3 Months",
+				"enablement": "git.live.localDoc.Last3Months.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last12Months",
+				"title": "✔ 12 Months",
+				"enablement": "git.live.localDoc.Last12Months.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last12MonthsOff",
+				"title": "12 Months",
+				"enablement": "git.live.localDoc.Last12Months.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last3Years",
+				"title": "✔ 3 Years",
+				"enablement": "git.live.localDoc.Last3Years.enabled"
+			},
+			{
+				"command": "git.live.localDoc.Last3YearsOff",
+				"title": "3 Years",
+				"enablement": "git.live.localDoc.Last3Years.enabled"
+			},
+			{
+				"command": "git.live.remoteDiff.pushedChanges",
+				"title": "✔ Pushed changes",
+				"enablement": "git.live.remoteDiff.pushedChanges.enabled"
+			},
+			{
+				"command": "git.live.remoteDiff.unpushedChanges",
+				"title": "✔ Unpushed changes",
+				"enablement": "git.live.remoteDiff.unpushedChanges.enabled"
+			},
+			{
+				"command": "git.live.remoteDiff.pushedChangesOff",
+				"title": "Pushed changes",
+				"enablement": "git.live.remoteDiff.pushedChanges.enabled"
+			},
+			{
+				"command": "git.live.remoteDiff.unpushedChangesOff",
+				"title": "Unpushed changes",
+				"enablement": "git.live.remoteDiff.unpushedChanges.enabled"
+			},
+			{
+				"command": "git.live.diff.leftBase",
+				"title": "◉ ◧ Common ancestor",
+				"enablement": "git.live.diff.leftBase.enabled"
+			},
+			{
+				"command": "git.live.diff.leftBaseOff",
+				"title": "○ ◧ Common ancestor",
+				"enablement": "git.live.diff.leftBase.enabled"
+			},
+			{
+				"command": "git.live.diff.leftYourLocal",
+				"title": "◉ ◧ Your working tree",
+				"enablement": "git.live.diff.leftYourLocal.enabled"
+			},
+			{
+				"command": "git.live.diff.leftYourLocalOff",
+				"title": "○ ◧ Your working tree",
+				"enablement": "git.live.diff.leftYourLocal.enabled"
+			},
+			{
+				"command": "git.live.diff.leftTheirRemote",
+				"title": "◉ ◧ Their remote branch",
+				"enablement": "git.live.diff.leftTheirRemote.enabled"
+			},
+			{
+				"command": "git.live.diff.leftTheirRemoteOff",
+				"title": "○ ◧ Their remote branch",
+				"enablement": "git.live.diff.leftTheirRemote.enabled"
+			},
+			{
+				"command": "git.live.diff.rightTheirRemote",
+				"title": "◉ ◨ Their remote branch",
+				"enablement": "git.live.diff.rightTheirRemote.enabled"
+			},
+			{
+				"command": "git.live.diff.rightTheirRemoteOff",
+				"title": "○ ◨ Their remote branch",
+				"enablement": "git.live.diff.rightTheirRemote.enabled"
+			},
+			{
+				"command": "git.live.diff.rightTheirLocal",
+				"title": "◉ ◨ Their working tree",
+				"enablement": "git.live.diff.rightTheirLocal.enabled"
+			},
+			{
+				"command": "git.live.diff.rightTheirLocalOff",
+				"title": "○ ◨ Their working tree",
+				"enablement": "git.live.diff.rightTheirLocal.enabled"
+			},
+			{
+				"command": "git.live.showAccountList",
+				"title": "Manage your accounts",
+				"icon": {
+					"light": "./resources/light/icon-account.svg",
+					"dark": "./resources/dark/icon-account.svg"
+				}
+			},
+			{
+				"command": "git.live.shareChanges",
+				"title": "Share working tree changes",
+				"enablement": "git.live.shareChanges.enabled",
+				"icon": {
+					"light": "./resources/light/sharing-off.svg",
+					"dark": "./resources/dark/sharing-off.svg"
+				}
+			},
+			{
+				"command": "git.live.shareChangesOff",
+				"title": "Share working tree changes",
+				"enablement": "git.live.shareChanges.enabled",
+				"icon": {
+					"light": "./resources/light/sharing-on.svg",
+					"dark": "./resources/dark/sharing-on.svg"
+				}
+			},
+			{
+				"command": "git.live.syncTeam",
+				"title": "Sync team with repository hosting service",
+				"enablement": "git.live.syncTeam.enabled",
+				"icon": {
+					"light": "./resources/light/icon-sync.svg",
+					"dark": "./resources/dark/icon-sync.svg"
+				}
+			},
+			{
+				"command": "git.live.viewSettings",
+				"title": "Settings",
+				"icon": {
+					"light": "./resources/light/settings-gear.svg",
+					"dark": "./resources/dark/settings-gear.svg"
+				}
+			},
+			{
+				"command": "git.live.reportIssue",
+				"title": "GitLive: Report issue"
+			},
+			{
+				"command": "git.live.callPalette",
+				"title": "GitLive: Call a teammate",
+				"icon": {
+					"light": "./resources/light/call-outgoing.svg",
+					"dark": "./resources/dark/call-outgoing.svg"
+				}
+			},
+			{
+				"command": "git.live.sharePalette",
+				"title": "GitLive: Codeshare with a teammate",
+				"icon": "$(code)"
+			},
+			{
+				"command": "git.live.share",
+				"enablement": "viewItem =~ /#share=enabled/",
+				"title": "Codeshare with teammate",
+				"icon": "$(code)"
+			},
+			{
+				"command": "git.live.call",
+				"title": "Call teammate",
+				"enablement": "viewItem =~ /#call=enabled/",
+				"icon": {
+					"light": "./resources/light/call-outgoing.svg",
+					"dark": "./resources/dark/call-outgoing.svg"
+				}
+			},
+			{
+				"command": "git.live.openProfileOnGitHub",
+				"title": "Open profile on GitHub",
+				"enablement": "viewItem =~ /openProfileOnGitHub=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-github.svg",
+					"dark": "./resources/dark/icon-github.svg"
+				}
+			},
+			{
+				"command": "git.live.openBranchOnGitHub",
+				"title": "Open branch on GitHub",
+				"enablement": "viewItem =~ /#openBranchOnGitHub=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			},
+			{
+				"command": "git.live.openIssueOnGitHub",
+				"title": "Open issue on GitHub",
+				"enablement": "viewItem =~ /#openIssueOnGitHub=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			},
+			{
+				"command": "git.live.compareToDefaultBranchOnGitHub",
+				"title": "Compare to default branch on GitHub",
+				"enablement": "viewItem =~ /#compareToDefaultBranchOnGitHub=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-compare-branch.svg",
+					"dark": "./resources/dark/icon-compare-branch.svg"
+				}
+			},
+			{
+				"command": "git.live.openPullRequestOnGitHub",
+				"title": "Open pull request on GitHub",
+				"enablement": "viewItem =~ /#openPullRequestOnGitHub=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-pr.svg",
+					"dark": "./resources/dark/icon-pr.svg"
+				}
+			},
+			{
+				"command": "git.live.openFileOnGitHub",
+				"title": "Open on GitHub",
+				"enablement": "viewItem =~ /#openFileOnGitHub=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			},
+			{
+				"command": "git.live.openProfileOnBitbucket",
+				"title": "Open profile on Bitbucket",
+				"enablement": "viewItem =~ /#openProfileOnBitbucket=enabled/",
+				"icon": "./resources/icon-bitbucket.svg"
+			},
+			{
+				"command": "git.live.openBranchOnBitbucket",
+				"title": "Open branch on Bitbucket",
+				"enablement": "viewItem =~ /#openBranchOnBitbucket=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			},
+			{
+				"command": "git.live.openIssueOnBitbucket",
+				"title": "Open issue on Bitbucket",
+				"enablement": "viewItem =~ /#openIssueOnBitbucket=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			},
+			{
+				"command": "git.live.compareToDefaultBranchOnBitbucket",
+				"title": "Compare to default branch on Bitbucket",
+				"enablement": "viewItem =~ /#compareToDefaultBranchOnBitbucket=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-compare-branch.svg",
+					"dark": "./resources/dark/icon-compare-branch.svg"
+				}
+			},
+			{
+				"command": "git.live.openPullRequestOnBitbucket",
+				"title": "Open pull request on Bitbucket",
+				"enablement": "viewItem =~ /#openPullRequestOnBitbucket=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-pr.svg",
+					"dark": "./resources/dark/icon-pr.svg"
+				}
+			},
+			{
+				"command": "git.live.openFileOnBitbucket",
+				"title": "Open on Bitbucket",
+				"enablement": "viewItem =~ /#openFileOnBitbucket=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			},
+			{
+				"command": "git.live.openProfileOnGitLab",
+				"title": "Open profile on GitLab",
+				"enablement": "viewItem =~ /#openProfileOnGitLab=enabled/",
+				"icon": "./resources/gitlab-icon-rgb.svg"
+			},
+			{
+				"command": "git.live.openBranchOnGitLab",
+				"title": "Open branch on GitLab",
+				"enablement": "viewItem =~ /#openBranchOnGitLab=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			},
+			{
+				"command": "git.live.openIssueOnGitLab",
+				"title": "Open issue on GitLab",
+				"enablement": "viewItem =~ /#openIssueOnGitLab=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			},
+			{
+				"command": "git.live.compareToDefaultBranchOnGitLab",
+				"title": "Compare to default branch on GitLab",
+				"enablement": "viewItem =~ /#compareToDefaultBranchOnGitLab=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-compare-branch.svg",
+					"dark": "./resources/dark/icon-compare-branch.svg"
+				}
+			},
+			{
+				"command": "git.live.openPullRequestOnGitLab",
+				"title": "Open merge request on GitLab",
+				"enablement": "viewItem =~ /#openPullRequestOnGitLab=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-pr.svg",
+					"dark": "./resources/dark/icon-pr.svg"
+				}
+			},
+			{
+				"command": "git.live.openFileOnGitLab",
+				"title": "Open on GitLab",
+				"enablement": "viewItem =~ /#openFileOnGitLab=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			},
+			{
+				"command": "git.live.openProfileOnAzure",
+				"title": "Open profile on Azure DevOps",
+				"enablement": "viewItem =~ /openProfileOnAzure=enabled/",
+				"icon": "./resources/light/icon-azure.svg"
+			},
+			{
+				"command": "git.live.openBranchOnAzure",
+				"title": "Open branch on Azure DevOps",
+				"enablement": "viewItem =~ /#openBranchOnAzure=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			},
+			{
+				"command": "git.live.openIssueOnAzure",
+				"title": "Open issue on Azure DevOps",
+				"enablement": "viewItem =~ /#openIssueOnAzure=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			},
+			{
+				"command": "git.live.compareToDefaultBranchOnAzure",
+				"title": "Compare to default branch on Azure DevOps",
+				"enablement": "viewItem =~ /#compareToDefaultBranchOnAzure=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-compare-branch.svg",
+					"dark": "./resources/dark/icon-compare-branch.svg"
+				}
+			},
+			{
+				"command": "git.live.openPullRequestOnAzure",
+				"title": "Open pull request on Azure DevOps",
+				"enablement": "viewItem =~ /#openPullRequestOnAzure=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-pr.svg",
+					"dark": "./resources/dark/icon-pr.svg"
+				}
+			},
+			{
+				"command": "git.live.openFileOnAzure",
+				"title": "Open on Azure DevOps",
+				"enablement": "viewItem =~ /#openFileOnAzure=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			},
+			{
+				"command": "git.live.openFileOnYourLocal",
+				"title": "Open your working tree version",
+				"enablement": "viewItem =~ /#openFileOnYourLocal=enabled/",
+				"icon": "$(folder-opened)"
+			},
+			{
+				"command": "git.live.openDiffWithYourLocal",
+				"title": "Diff with your working tree",
+				"enablement": "viewItem =~ /#openDiffWithYourLocal=enabled/",
+				"icon": "$(folder-opened)"
+			},
+			{
+				"command": "git.live.cherryPick",
+				"title": "Cherry pick all changes",
+				"enablement": "viewItem =~ /#cherryPick=enabled/",
+				"icon": {
+					"light": "./resources/light/cherry-pick.svg",
+					"dark": "./resources/dark/cherry-pick.svg"
+				}
+			},
+			{
+				"command": "git.live.deleteWorkingCopy",
+				"title": "Remove from GitLive",
+				"enablement": "viewItem =~ /#deleteWorkingCopy=enabled/"
+			},
+			{
+				"command": "git.live.openIssueOnJira",
+				"title": "Open issue on Jira",
+				"enablement": "viewItem =~ /#openIssueOnJira=enabled/",
+				"icon": {
+					"light": "./resources/light/icon-open-file.svg",
+					"dark": "./resources/dark/icon-open-file.svg"
+				}
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"submenu": "editor/title/localDoc",
+					"group": "navigation",
+					"when": "!isInDiffEditor"
+				},
+				{
+					"submenu": "editor/title/remoteDiff",
+					"group": "navigation@90",
+					"when": "resourceScheme == gitlive-remote-diff"
+				},
+				{
+					"submenu": "editor/title/diff",
+					"group": "navigation@90",
+					"when": "resourceScheme != gitlive-remote-diff && isInDiffEditor"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "git.live.callPalette",
+					"when": "git.live.callPalette.enabled"
+				},
+				{
+					"command": "git.live.sharePalette",
+					"when": "git.live.sharePalette.enabled"
+				},
+				{
+					"command": "git.live.openIssueOnJira",
+					"when": "false"
+				},
+				{
+					"command": "git.live.shareChanges",
+					"when": "false"
+				},
+				{
+					"command": "git.live.shareChangesOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.syncTeam",
+					"when": "false"
+				},
+				{
+					"command": "git.live.viewSettings",
+					"when": "false"
+				},
+				{
+					"command": "git.live.tree.leftBase",
+					"when": "false"
+				},
+				{
+					"command": "git.live.tree.leftBaseOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.tree.leftYourLocal",
+					"when": "false"
+				},
+				{
+					"command": "git.live.tree.leftYourLocalOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.tree.leftTheirRemote",
+					"when": "false"
+				},
+				{
+					"command": "git.live.tree.leftTheirRemoteOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.tree.rightTheirRemote",
+					"when": "false"
+				},
+				{
+					"command": "git.live.tree.rightTheirRemoteOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.tree.rightTheirLocal",
+					"when": "false"
+				},
+				{
+					"command": "git.live.tree.rightTheirLocalOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.pushedChanges",
+					"when": "false"
+				},
+				{
+					"command": "git.live.pushedChangesOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.unpushedChanges",
+					"when": "false"
+				},
+				{
+					"command": "git.live.unpushedChangesOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.todo",
+					"when": "false"
+				},
+				{
+					"command": "git.live.todoOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.inProgress",
+					"when": "false"
+				},
+				{
+					"command": "git.live.inProgressOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.stale",
+					"when": "false"
+				},
+				{
+					"command": "git.live.staleOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.offline",
+					"when": "false"
+				},
+				{
+					"command": "git.live.offlineOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last24Hours",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last24HoursOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last7Days",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last7DaysOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last2Weeks",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last2WeeksOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last4Weeks",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last4WeeksOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last3Months",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last3MonthsOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last12Months",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last12MonthsOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last3Years",
+					"when": "false"
+				},
+				{
+					"command": "git.live.Last3YearsOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.rightTheirRemote",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.rightTheirRemoteOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.rightTheirLocal",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.rightTheirLocalOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.nonConflicting",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.nonConflictingOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last24Hours",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last24HoursOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last7Days",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last7DaysOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last2Weeks",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last2WeeksOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last4Weeks",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last4WeeksOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last3Months",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last3MonthsOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last12Months",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last12MonthsOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last3Years",
+					"when": "false"
+				},
+				{
+					"command": "git.live.localDoc.Last3YearsOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.remoteDiff.pushedChanges",
+					"when": "false"
+				},
+				{
+					"command": "git.live.remoteDiff.pushedChangesOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.remoteDiff.unpushedChanges",
+					"when": "false"
+				},
+				{
+					"command": "git.live.remoteDiff.unpushedChangesOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.diff.leftBase",
+					"when": "false"
+				},
+				{
+					"command": "git.live.diff.leftBaseOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.diff.leftYourLocal",
+					"when": "false"
+				},
+				{
+					"command": "git.live.diff.leftYourLocalOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.diff.leftTheirRemote",
+					"when": "false"
+				},
+				{
+					"command": "git.live.diff.leftTheirRemoteOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.diff.rightTheirRemote",
+					"when": "false"
+				},
+				{
+					"command": "git.live.diff.rightTheirRemoteOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.diff.rightTheirLocal",
+					"when": "false"
+				},
+				{
+					"command": "git.live.diff.rightTheirLocalOff",
+					"when": "false"
+				},
+				{
+					"command": "git.live.showAccountList",
+					"when": "false"
+				},
+				{
+					"command": "git.live.call",
+					"when": "false"
+				},
+				{
+					"command": "git.live.share",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openProfileOnGitHub",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openBranchOnGitHub",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openIssueOnGitHub",
+					"when": "false"
+				},
+				{
+					"command": "git.live.compareToDefaultBranchOnGitHub",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openPullRequestOnGitHub",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openFileOnGitHub",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openProfileOnBitbucket",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openFileOnBitbucket",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openBranchOnBitbucket",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openIssueOnBitbucket",
+					"when": "false"
+				},
+				{
+					"command": "git.live.compareToDefaultBranchOnBitbucket",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openPullRequestOnBitbucket",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openProfileOnGitLab",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openFileOnGitLab",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openBranchOnGitLab",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openIssueOnGitLab",
+					"when": "false"
+				},
+				{
+					"command": "git.live.compareToDefaultBranchOnGitLab",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openPullRequestOnGitLab",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openProfileOnAzure",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openBranchOnAzure",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openIssueOnAzure",
+					"when": "false"
+				},
+				{
+					"command": "git.live.compareToDefaultBranchOnAzure",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openPullRequestOnAzure",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openFileOnAzure",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openFileOnYourLocal",
+					"when": "false"
+				},
+				{
+					"command": "git.live.openDiffWithYourLocal",
+					"when": "false"
+				},
+				{
+					"command": "git.live.cherryPick",
+					"when": "false"
+				},
+				{
+					"command": "git.live.deleteWorkingCopy",
+					"when": "false"
+				}
+			],
+			"editor/title/remoteDiff": [
+				{
+					"command": "git.live.remoteDiff.pushedChangesOff",
+					"group": "navigation@90",
+					"when": "!git.live.remoteDiff.pushedChanges.selected"
+				},
+				{
+					"command": "git.live.remoteDiff.pushedChanges",
+					"group": "navigation@90",
+					"when": "git.live.remoteDiff.pushedChanges.selected"
+				},
+				{
+					"command": "git.live.remoteDiff.unpushedChangesOff",
+					"group": "navigation@95",
+					"when": "!git.live.remoteDiff.unpushedChanges.selected"
+				},
+				{
+					"command": "git.live.remoteDiff.unpushedChanges",
+					"group": "navigation@95",
+					"when": "git.live.remoteDiff.unpushedChanges.selected"
+				}
+			],
+			"editor/title/diff": [
+				{
+					"command": "git.live.diff.leftBase",
+					"group": "1_changes@90",
+					"when": "git.live.diff.leftBase.selected"
+				},
+				{
+					"command": "git.live.diff.leftBaseOff",
+					"group": "1_changes@90",
+					"when": "!git.live.diff.leftBase.selected"
+				},
+				{
+					"command": "git.live.diff.leftYourLocal",
+					"group": "1_changes@91",
+					"when": "git.live.diff.leftYourLocal.selected"
+				},
+				{
+					"command": "git.live.diff.leftYourLocalOff",
+					"group": "1_changes@91",
+					"when": "!git.live.diff.leftYourLocal.selected"
+				},
+				{
+					"command": "git.live.diff.leftTheirRemote",
+					"group": "1_changes@92",
+					"when": "git.live.diff.leftTheirRemote.selected"
+				},
+				{
+					"command": "git.live.diff.leftTheirRemoteOff",
+					"group": "1_changes@92",
+					"when": "!git.live.diff.leftTheirRemote.selected"
+				},
+				{
+					"command": "git.live.diff.rightTheirRemote",
+					"group": "2_changes@90",
+					"when": "git.live.diff.rightTheirRemote.selected"
+				},
+				{
+					"command": "git.live.diff.rightTheirRemoteOff",
+					"group": "2_changes@90",
+					"when": "!git.live.diff.rightTheirRemote.selected"
+				},
+				{
+					"command": "git.live.diff.rightTheirLocal",
+					"group": "2_changes@91",
+					"when": "git.live.diff.rightTheirLocal.selected"
+				},
+				{
+					"command": "git.live.diff.rightTheirLocalOff",
+					"group": "2_changes@91",
+					"when": "!git.live.diff.rightTheirLocal.selected"
+				}
+			],
+			"editor/title/localDoc": [
+				{
+					"command": "git.live.localDoc.rightTheirRemote",
+					"group": "1_changes@90",
+					"when": "git.live.localDoc.rightTheirRemote.selected"
+				},
+				{
+					"command": "git.live.localDoc.rightTheirRemoteOff",
+					"group": "1_changes@90",
+					"when": "!git.live.localDoc.rightTheirRemote.selected"
+				},
+				{
+					"command": "git.live.localDoc.rightTheirLocal",
+					"group": "1_changes@92",
+					"when": "git.live.localDoc.rightTheirLocal.selected"
+				},
+				{
+					"command": "git.live.localDoc.rightTheirLocalOff",
+					"group": "1_changes@91",
+					"when": "!git.live.localDoc.rightTheirLocal.selected"
+				},
+				{
+					"command": "git.live.localDoc.nonConflictingOff",
+					"group": "2_other@90",
+					"when": "!git.live.localDoc.nonConflicting.selected"
+				},
+				{
+					"command": "git.live.localDoc.nonConflicting",
+					"group": "2_other@90",
+					"when": "git.live.localDoc.nonConflicting.selected"
+				},
+				{
+					"submenu": "editor/title/localDoc/changesFromLast24Hours",
+					"group": "2_other@91",
+					"when": "git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"submenu": "editor/title/localDoc/changesFromLast7Days",
+					"group": "2_other@91",
+					"when": "git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"submenu": "editor/title/localDoc/changesFromLast2Weeks",
+					"group": "2_other@91",
+					"when": "git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"submenu": "editor/title/localDoc/changesFromLast4Weeks",
+					"group": "2_other@91",
+					"when": "git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"submenu": "editor/title/localDoc/changesFromLast3Months",
+					"group": "2_other@91",
+					"when": "git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"submenu": "editor/title/localDoc/changesFromLast12Months",
+					"group": "2_other@91",
+					"when": "git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"submenu": "editor/title/localDoc/changesFromLast3Years",
+					"group": "2_other@91",
+					"when": "git.live.localDoc.Last3Years.selected"
+				}
+			],
+			"view/title": [
+				{
+					"command": "git.live.shareChanges",
+					"when": "view == gitlive && !git.live.view.org && !git.live.shareChanges.selected",
+					"group": "navigation@80"
+				},
+				{
+					"command": "git.live.shareChangesOff",
+					"when": "view == gitlive && !git.live.view.org && git.live.shareChanges.selected",
+					"group": "navigation@80"
+				},
+				{
+					"command": "git.live.switchTeamOrg",
+					"when": "view == gitlive && git.live.view.org",
+					"group": "navigation@80"
+				},
+				{
+					"command": "git.live.switchTeamRepo",
+					"when": "view == gitlive && !git.live.view.org",
+					"group": "navigation@80"
+				},
+				{
+					"submenu": "view/title/viewOptions",
+					"when": "view == gitlive",
+					"group": "navigation@90"
+				},
+				{
+					"command": "git.live.syncTeam",
+					"when": "view == gitlive",
+					"group": "navigation@100"
+				},
+				{
+					"command": "git.live.showAccountList",
+					"when": "view == gitlive",
+					"group": "navigation@100"
+				},
+				{
+					"command": "git.live.viewSettings",
+					"when": "view == gitlive",
+					"group": "navigation@100"
+				}
+			],
+			"view/title/viewOptions": [
+				{
+					"command": "git.live.pushedChangesOff",
+					"group": "1_changes@90",
+					"when": "!git.live.pushedChanges.selected && git.live.view.org"
+				},
+				{
+					"command": "git.live.pushedChanges",
+					"group": "1_changes@90",
+					"when": "git.live.pushedChanges.selected && git.live.view.org"
+				},
+				{
+					"command": "git.live.unpushedChangesOff",
+					"group": "1_changes@95",
+					"when": "!git.live.unpushedChanges.selected && git.live.view.org"
+				},
+				{
+					"command": "git.live.unpushedChanges",
+					"group": "1_changes@95",
+					"when": "git.live.unpushedChanges.selected && git.live.view.org"
+				},
+				{
+					"command": "git.live.tree.leftBase",
+					"group": "1_changes@90",
+					"when": "git.live.tree.leftBase.selected && !git.live.view.org"
+				},
+				{
+					"command": "git.live.tree.leftBaseOff",
+					"group": "1_changes@90",
+					"when": "!git.live.tree.leftBase.selected && !git.live.view.org"
+				},
+				{
+					"command": "git.live.tree.leftYourLocal",
+					"group": "1_changes@91",
+					"when": "git.live.tree.leftYourLocal.selected && !git.live.view.org"
+				},
+				{
+					"command": "git.live.tree.leftYourLocalOff",
+					"group": "1_changes@91",
+					"when": "!git.live.tree.leftYourLocal.selected && !git.live.view.org"
+				},
+				{
+					"command": "git.live.tree.leftTheirRemote",
+					"group": "1_changes@92",
+					"when": "git.live.tree.leftTheirRemote.selected && !git.live.view.org"
+				},
+				{
+					"command": "git.live.tree.leftTheirRemoteOff",
+					"group": "1_changes@92",
+					"when": "!git.live.tree.leftTheirRemote.selected && !git.live.view.org"
+				},
+				{
+					"command": "git.live.tree.rightTheirRemote",
+					"group": "2_changes@90",
+					"when": "git.live.tree.rightTheirRemote.selected && !git.live.view.org"
+				},
+				{
+					"command": "git.live.tree.rightTheirRemoteOff",
+					"group": "2_changes@90",
+					"when": "!git.live.tree.rightTheirRemote.selected && !git.live.view.org"
+				},
+				{
+					"command": "git.live.tree.rightTheirLocal",
+					"group": "2_changes@91",
+					"when": "git.live.tree.rightTheirLocal.selected && !git.live.view.org"
+				},
+				{
+					"command": "git.live.tree.rightTheirLocalOff",
+					"group": "2_changes@91",
+					"when": "!git.live.tree.rightTheirLocal.selected && !git.live.view.org"
+				},
+				{
+					"command": "git.live.todoOff",
+					"group": "2_status@90",
+					"when": "!git.live.todo.selected && git.live.view.org"
+				},
+				{
+					"command": "git.live.todo",
+					"group": "2_status@90",
+					"when": "git.live.todo.selected && git.live.view.org"
+				},
+				{
+					"command": "git.live.inProgressOff",
+					"group": "2_status@91",
+					"when": "!git.live.inProgress.selected && git.live.view.org"
+				},
+				{
+					"command": "git.live.inProgress",
+					"group": "2_status@91",
+					"when": "git.live.inProgress.selected && git.live.view.org"
+				},
+				{
+					"submenu": "view/title/viewOptions/changesFromLast24Hours",
+					"group": "2_status@92",
+					"when": "!git.live.view.org && git.live.Last24Hours.selected"
+				},
+				{
+					"submenu": "view/title/viewOptions/changesFromLast7Days",
+					"group": "2_status@92",
+					"when": "!git.live.view.org && git.live.Last7Days.selected"
+				},
+				{
+					"submenu": "view/title/viewOptions/changesFromLast2Weeks",
+					"group": "2_status@92",
+					"when": "!git.live.view.org && git.live.Last2Weeks.selected"
+				},
+				{
+					"submenu": "view/title/viewOptions/changesFromLast4Weeks",
+					"group": "2_status@92",
+					"when": "!git.live.view.org && git.live.Last4Weeks.selected"
+				},
+				{
+					"submenu": "view/title/viewOptions/changesFromLast3Months",
+					"group": "2_status@92",
+					"when": "!git.live.view.org && git.live.Last3Months.selected"
+				},
+				{
+					"submenu": "view/title/viewOptions/changesFromLast12Months",
+					"group": "2_status@92",
+					"when": "!git.live.view.org && git.live.Last12Months.selected"
+				},
+				{
+					"submenu": "view/title/viewOptions/changesFromLast3Years",
+					"group": "2_status@92",
+					"when": "!git.live.view.org && git.live.Last3Years.selected"
+				},
+				{
+					"command": "git.live.staleOff",
+					"group": "3_other@90",
+					"when": "!git.live.stale.selected && git.live.view.org"
+				},
+				{
+					"command": "git.live.stale",
+					"group": "3_other@90",
+					"when": "git.live.stale.selected && git.live.view.org"
+				},
+				{
+					"command": "git.live.offlineOff",
+					"group": "3_other@95",
+					"when": "!git.live.offline.selected && git.live.view.org"
+				},
+				{
+					"command": "git.live.offline",
+					"group": "3_other@95",
+					"when": "git.live.offline.selected && git.live.view.org"
+				}
+			],
+			"view/title/viewOptions/changesFromLast24Hours": [
+				{
+					"command": "git.live.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.Last3Years.selected"
+				},
+				{
+					"command": "git.live.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.Last3Years.selected"
+				}
+			],
+			"view/title/viewOptions/changesFromLast7Days": [
+				{
+					"command": "git.live.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.Last3Years.selected"
+				},
+				{
+					"command": "git.live.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.Last3Years.selected"
+				}
+			],
+			"view/title/viewOptions/changesFromLast2Weeks": [
+				{
+					"command": "git.live.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.Last3Years.selected"
+				},
+				{
+					"command": "git.live.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.Last3Years.selected"
+				}
+			],
+			"view/title/viewOptions/changesFromLast4Weeks": [
+				{
+					"command": "git.live.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.Last3Years.selected"
+				},
+				{
+					"command": "git.live.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.Last3Years.selected"
+				}
+			],
+			"view/title/viewOptions/changesFromLast3Months": [
+				{
+					"command": "git.live.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.Last3Years.selected"
+				},
+				{
+					"command": "git.live.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.Last3Years.selected"
+				}
+			],
+			"view/title/viewOptions/changesFromLast12Months": [
+				{
+					"command": "git.live.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.Last3Years.selected"
+				},
+				{
+					"command": "git.live.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.Last3Years.selected"
+				}
+			],
+			"view/title/viewOptions/changesFromLast3Years": [
+				{
+					"command": "git.live.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.Last7Days.selected"
+				},
+				{
+					"command": "git.live.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.Last3Months.selected"
+				},
+				{
+					"command": "git.live.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.Last12Months.selected"
+				},
+				{
+					"command": "git.live.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.Last3Years.selected"
+				},
+				{
+					"command": "git.live.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.Last3Years.selected"
+				}
+			],
+			"editor/title/localDoc/changesFromLast24Hours": [
+				{
+					"command": "git.live.localDoc.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.localDoc.Last3Years.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.localDoc.Last3Years.selected"
+				}
+			],
+			"editor/title/localDoc/changesFromLast7Days": [
+				{
+					"command": "git.live.localDoc.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.localDoc.Last3Years.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.localDoc.Last3Years.selected"
+				}
+			],
+			"editor/title/localDoc/changesFromLast2Weeks": [
+				{
+					"command": "git.live.localDoc.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.localDoc.Last3Years.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.localDoc.Last3Years.selected"
+				}
+			],
+			"editor/title/localDoc/changesFromLast4Weeks": [
+				{
+					"command": "git.live.localDoc.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.localDoc.Last3Years.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.localDoc.Last3Years.selected"
+				}
+			],
+			"editor/title/localDoc/changesFromLast3Months": [
+				{
+					"command": "git.live.localDoc.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.localDoc.Last3Years.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.localDoc.Last3Years.selected"
+				}
+			],
+			"editor/title/localDoc/changesFromLast12Months": [
+				{
+					"command": "git.live.localDoc.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.localDoc.Last3Years.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.localDoc.Last3Years.selected"
+				}
+			],
+			"editor/title/localDoc/changesFromLast3Years": [
+				{
+					"command": "git.live.localDoc.Last24Hours",
+					"group": "1_changes@90",
+					"when": "git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last24HoursOff",
+					"group": "1_changes@90",
+					"when": "!git.live.localDoc.Last24Hours.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7Days",
+					"group": "1_changes@91",
+					"when": "git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last7DaysOff",
+					"group": "1_changes@91",
+					"when": "!git.live.localDoc.Last7Days.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2Weeks",
+					"group": "1_changes@92",
+					"when": "git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last2WeeksOff",
+					"group": "1_changes@92",
+					"when": "!git.live.localDoc.Last2Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4Weeks",
+					"group": "1_changes@93",
+					"when": "git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last4WeeksOff",
+					"group": "1_changes@93",
+					"when": "!git.live.localDoc.Last4Weeks.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Months",
+					"group": "1_changes@94",
+					"when": "git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3MonthsOff",
+					"group": "1_changes@94",
+					"when": "!git.live.localDoc.Last3Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12Months",
+					"group": "1_changes@95",
+					"when": "git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last12MonthsOff",
+					"group": "1_changes@95",
+					"when": "!git.live.localDoc.Last12Months.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3Years",
+					"group": "1_changes@96",
+					"when": "git.live.localDoc.Last3Years.selected"
+				},
+				{
+					"command": "git.live.localDoc.Last3YearsOff",
+					"group": "1_changes@96",
+					"when": "!git.live.localDoc.Last3Years.selected"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "git.live.call",
+					"when": "viewItem =~ /#call/",
+					"group": "inline@1"
+				},
+				{
+					"command": "git.live.share",
+					"when": "viewItem =~ /#share/",
+					"group": "inline@2"
+				},
+				{
+					"command": "git.live.openIssueOnJira",
+					"when": "viewItem =~ /#openIssueOnJira/",
+					"group": "inline@3"
+				},
+				{
+					"command": "git.live.openIssueOnGitHub",
+					"when": "viewItem =~ /#openIssueOnGitHub/",
+					"group": "inline@3"
+				},
+				{
+					"command": "git.live.openIssueOnBitbucket",
+					"when": "viewItem =~ /#openIssueOnBitbucket/",
+					"group": "inline@3"
+				},
+				{
+					"command": "git.live.openIssueOnGitLab",
+					"when": "viewItem =~ /#openIssueOnGitLab/",
+					"group": "inline@3"
+				},
+				{
+					"command": "git.live.openIssueOnAzure",
+					"when": "viewItem =~ /#openIssueOnAzure/",
+					"group": "inline@3"
+				},
+				{
+					"command": "git.live.openProfileOnGitHub",
+					"when": "viewItem =~ /#openProfileOnGitHub/",
+					"group": "navigation@1"
+				},
+				{
+					"command": "git.live.openProfileOnBitbucket",
+					"when": "viewItem =~ /#openProfileOnBitbucket/",
+					"group": "navigation@2"
+				},
+				{
+					"command": "git.live.openProfileOnGitLab",
+					"when": "viewItem =~ /#openProfileOnGitLab/",
+					"group": "navigation@3"
+				},
+				{
+					"command": "git.live.openProfileOnAzure",
+					"when": "viewItem =~ /#openProfileOnAzure/",
+					"group": "navigation@4"
+				},
+				{
+					"command": "git.live.compareToDefaultBranchOnGitHub",
+					"when": "viewItem =~ /#compareToDefaultBranchOnGitHub/",
+					"group": "navigation@1"
+				},
+				{
+					"command": "git.live.compareToDefaultBranchOnBitbucket",
+					"when": "viewItem =~ /#compareToDefaultBranchOnBitbucket/",
+					"group": "navigation@1"
+				},
+				{
+					"command": "git.live.compareToDefaultBranchOnGitLab",
+					"when": "viewItem =~ /#compareToDefaultBranchOnGitLab/",
+					"group": "navigation@1"
+				},
+				{
+					"command": "git.live.compareToDefaultBranchOnAzure",
+					"when": "viewItem =~ /#compareToDefaultBranchOnAzure/",
+					"group": "navigation@1"
+				},
+				{
+					"command": "git.live.openPullRequestOnGitHub",
+					"when": "viewItem =~ /#openPullRequestOnGitHub/",
+					"group": "navigation@2"
+				},
+				{
+					"command": "git.live.openPullRequestOnBitbucket",
+					"when": "viewItem =~ /#openPullRequestOnBitbucket/",
+					"group": "navigation@2"
+				},
+				{
+					"command": "git.live.openPullRequestOnGitLab",
+					"when": "viewItem =~ /#openPullRequestOnGitLab/",
+					"group": "navigation@2"
+				},
+				{
+					"command": "git.live.openPullRequestOnGitLab",
+					"when": "viewItem =~ /#openPullRequestOnAzure/",
+					"group": "navigation@2"
+				},
+				{
+					"command": "git.live.openBranchOnGitHub",
+					"when": "viewItem =~ /#openBranchOnGitHub/",
+					"group": "navigation@3"
+				},
+				{
+					"command": "git.live.openBranchOnBitbucket",
+					"when": "viewItem =~ /#openBranchOnBitbucket/",
+					"group": "navigation@3"
+				},
+				{
+					"command": "git.live.openBranchOnGitLab",
+					"when": "viewItem =~ /#openBranchOnGitLab/",
+					"group": "navigation@3"
+				},
+				{
+					"command": "git.live.openBranchOnAzure",
+					"when": "viewItem =~ /#openBranchOnAzure/",
+					"group": "navigation@3"
+				},
+				{
+					"command": "git.live.openFileOnYourLocal",
+					"when": "viewItem =~ /#openFileOnYourLocal/",
+					"group": "navigation@1"
+				},
+				{
+					"command": "git.live.openDiffWithYourLocal",
+					"when": "viewItem =~ /#openDiffWithYourLocal/",
+					"group": "navigation@4"
+				},
+				{
+					"command": "git.live.cherryPick",
+					"when": "viewItem =~ /#cherryPick/",
+					"group": "navigation@2"
+				},
+				{
+					"command": "git.live.deleteWorkingCopy",
+					"when": "viewItem =~ /#deleteWorkingCopy/",
+					"group": "navigation@3"
+				},
+				{
+					"command": "git.live.openFileOnGitHub",
+					"when": "viewItem =~ /#openFileOnGitHub/",
+					"group": "navigation@3"
+				},
+				{
+					"command": "git.live.openFileOnBitbucket",
+					"when": "viewItem =~ /#openFileOnBitbucket/",
+					"group": "navigation@3"
+				},
+				{
+					"command": "git.live.openFileOnGitLab",
+					"when": "viewItem =~ /#openFileOnGitLab/",
+					"group": "navigation@3"
+				},
+				{
+					"command": "git.live.openFileOnAzure",
+					"when": "viewItem =~ /#openFileOnAzure/",
+					"group": "navigation@3"
+				}
+			]
+		},
+		"submenus": [
+			{
+				"id": "view/title/viewOptions",
+				"label": "View Options",
+				"icon": "$(diff)"
+			},
+			{
+				"id": "view/title/viewOptions/changesFromLast24Hours",
+				"label": "Updated in last 24 hours"
+			},
+			{
+				"id": "view/title/viewOptions/changesFromLast7Days",
+				"label": "Updated in last 7 days"
+			},
+			{
+				"id": "view/title/viewOptions/changesFromLast2Weeks",
+				"label": "Updated in last 2 weeks"
+			},
+			{
+				"id": "view/title/viewOptions/changesFromLast4Weeks",
+				"label": "Updated in last 4 weeks"
+			},
+			{
+				"id": "view/title/viewOptions/changesFromLast3Months",
+				"label": "Updated in last 3 months"
+			},
+			{
+				"id": "view/title/viewOptions/changesFromLast12Months",
+				"label": "Updated in last 12 months"
+			},
+			{
+				"id": "view/title/viewOptions/changesFromLast3Years",
+				"label": "Updated in last 3 years"
+			},
+			{
+				"id": "editor/title/remoteDiff",
+				"label": "View Options",
+				"icon": "$(filter)"
+			},
+			{
+				"id": "editor/title/diff",
+				"label": "View Options",
+				"icon": "$(diff)"
+			},
+			{
+				"id": "editor/title/localDoc",
+				"label": "GitLive",
+				"icon": "$(diff)"
+			},
+			{
+				"id": "editor/title/localDoc/changesFromLast24Hours",
+				"label": "Changes from last 24 hours"
+			},
+			{
+				"id": "editor/title/localDoc/changesFromLast7Days",
+				"label": "Changes from last 7 days"
+			},
+			{
+				"id": "editor/title/localDoc/changesFromLast2Weeks",
+				"label": "Changes from last 2 weeks"
+			},
+			{
+				"id": "editor/title/localDoc/changesFromLast4Weeks",
+				"label": "Changes from last 4 weeks"
+			},
+			{
+				"id": "editor/title/localDoc/changesFromLast3Months",
+				"label": "Changes from last 3 months"
+			},
+			{
+				"id": "editor/title/localDoc/changesFromLast12Months",
+				"label": "Changes from last 12 months"
+			},
+			{
+				"id": "editor/title/localDoc/changesFromLast3Years",
+				"label": "Changes from last 3 years"
+			}
+		]
+	},
+	"extensionKind": [
+		"workspace"
+	],
+	"scripts": {
+		"vscode:prepublish": "webpack --mode production --config scripts/webpack.prod.config.js",
+		"start-debug": "webpack --mode development --config scripts/webpack.node.dev.config.js",
+		"start-debug-prod": "webpack --mode production --config scripts/webpack.node.prod.config.js",
+		"start-web-debug": "webpack --mode development --config scripts/webpack.web.dev.config.js",
+		"watch": "webpack --config scripts/webpack.node.dev.config.js --mode none --watch",
+		"test-compile": "tsc -p ./tsconfig.tests.json",
+		"test": "node ./out/test/runTest.js",
+		"update-file-icons": "node ./scripts/sync-file-icons.js",
+		"deploy": "vsce publish --yarn",
+		"pre-deploy": "vsce publish --pre-release --yarn"
+	},
+	"devDependencies": {
+		"@azure/storage-blob": "^12.11.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^12.12.6",
+		"@types/turndown": "^5.0.1",
+		"@types/vscode": "^1.70.0",
+		"bufferutil": "^4.0.3",
+		"clean-webpack-plugin": "^4.0.0",
+		"copy-webpack-plugin": "v6.2",
+		"encoding": "^0.1.13",
+		"fast-crc32c": "^2.0.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.1",
+		"mocha-junit-reporter": "^2.0.0",
+		"node-polyfill-webpack-plugin": "^1.1.4",
+		"os-browserify": "^0.3.0",
+		"string-replace-loader": "^3.0.3",
+		"terser-webpack-plugin": "^5.2.4",
+		"text-encoding": "^0.7.0",
+		"ts-loader": "^9.3.1",
+		"tslint": "^5.8.0",
+		"typescript": "^4.7.4",
+		"utf-8-validate": "^5.0.5",
+		"vsce": "^2.14.0",
+		"vscode-test": "^1.3.0",
+		"webpack": "^5.52.1",
+		"webpack-cli": "^4.8.0",
+		"webpack-merge": "^5.8.0"
+	},
+	"dependencies": {
+		"@gitliveapp/core": "10.1.103",
+		"@vscode/extension-telemetry": "^0.6.2",
+		"axios": "0.21.3",
+		"iconv-lite-umd": "^0.6.8",
+		"istextorbinary": "^6.0.0",
+		"temp-write": "^4.0.0",
+		"vscode-textbuffer": "^1.0.0",
+		"vsls": "^1.0.4753"
+	},
+	"resolutions": {
+		"node-fetch": "2.6.7",
+		"ws": "6.2.2"
+	},
+	"__metadata": {
+		"id": "9b05e859-b38c-450f-95d5-2800bed558ec",
+		"publisherId": "4e4f74d5-a844-4d09-ba72-8f012217df52",
+		"publisherDisplayName": "GitLive",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1677707462415,
+		"preRelease": false
+	}
+}

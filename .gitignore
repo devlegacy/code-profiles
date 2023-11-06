@@ -1,0 +1,42 @@
+**/.DS_Store
+**/Thumbs.db
+**/*.swp
+**/*.swo
+**/*~
+**/*.sock
+**/*.log
+**/*LOG
+**/*LOG.old
+
+**/data/Backups
+**/data/Cache
+**/data/CachedConfigurations
+**/data/CachedData
+**/data/CachedExtensions
+**/data/CachedExtensionVSIXs
+**/data/CachedProfilesData
+**/data/Code Cache
+**/data/Cookies
+**/data/Cookies-Journal
+**/data/DawnCache
+**/data/GPUCache
+**/data/Local Storage
+**/data/Network/Cookies
+**/data/Network/Cookies-Journal
+**/data/Network/Network Persistent State
+**/data/Network/TransportSecurity
+**/data/Service Worker/CacheStorage
+**/data/Service Worker/ScriptCache
+**/data/Session Storage
+**/data/logs
+**/data/machineid
+**/data/Preferences
+**/data/storage.json
+**/data/User/workspaceStorage
+**/data/User/globalStorage
+**/data/User/History
+**/data/VideoDecodeStats
+**/data/WebStorage
+
+**/extensions/.obsolete
+**/extensions/extensions.json

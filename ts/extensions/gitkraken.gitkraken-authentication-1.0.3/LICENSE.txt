@@ -1,0 +1,27 @@
+GitKraken Authentication Provider Extension License
+
+Copyright (c) 2022 Axosoft, LLC dba GitKraken ("GitKraken")
+
+This license applies to the GitKraken Authentication Provider Extension software
+(“extension”) including any updates to the software. By installing the extension
+or using it, you accept these terms.
+
+1. Use Rights. The extension allows you to connect to GitKraken services and
+   provide access to other authorized extensions from within Microsoft’s
+   developer tool Visual Studio Code. You may install and use any number of
+   copies of the extension to connect to GitKraken services. You may not work
+   around any technical limitations in the extension, reverse engineer,
+   decompile, disassemble, host, or redistribute the extension.
+
+2. Data Collection. The extension may collect information about you and your use
+   of the extension and send that to GitKraken in the United States or other
+   locations. GitKraken may use this information as described in the GitKraken
+   Privacy Policy at https://www.gitkraken.com/privacy.
+
+3. DISCLAIMER OF WARRANTY; LIMITATION OF DAMAGES. THE EXTENSION IS PROVIDED "AS
+   IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+   LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+   PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+   HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+   ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+   WITH THE EXTENSION OR THE USE OR OTHER DEALINGS IN THE EXTENSION.

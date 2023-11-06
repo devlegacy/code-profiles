@@ -1,0 +1,138 @@
+GitLive Ltd.
+
+Terms of Service
+Last updated on 09-02-2022
+
+This Terms of Service for GitLive (“Agreement”) is entered into by and between GitLive Ltd. (“GitLive”) and the entity or person accessing the GitLive Service (“Customer” or “you”). Certain capitalized terms are defined in Section 19 (Definitions) and others are defined contextually in this Agreement. If you are accessing or using the GitLive Service on behalf of your company, you represent that you are authorized to accept this Agreement on behalf of your company, and all references to “Customer” or “you” reference your company.
+
+The “Effective Date” of this Agreement is the date of the Customer’s initial access to the GitLive Service through any online provisioning, registration or order process on or after the Transaction Effective Date. GitLive may modify this Agreement from time to time as permitted in Section 14 (Modifications to Agreement).
+
+‍By indicating your acceptance of this Agreement or accessing or using the GitLive Service, you are agreeing to be bound by the terms and conditions of this Agreement. Each party expressly agrees that this Agreement is legally binding upon it.
+
+‍
+
+1. Using the GitLive Service
+1.1. Permitted Use. Subject to this Agreement, during the Term, the Customer may access and use the GitLive Service solely for its internal business purposes
+
+1.2. Usage Limits. In using the GitLive Service, the Customer must comply with the technical documentation or other instructions provided by GitLive from time to time (“Documentation”), as well as usage limits specified by GitLive.
+
+1.3. Restrictions. As conditions on the Customer’s rights in Section 1.1 (Permitted Use), the Customer will not (and will not permit anyone else to) do any of the following: (a) provide access to, distribute, sell or sublicense the GitLive Service to a third party, (b) use the GitLive Service on behalf of, or to provide any product or service to, third parties, (c) use the GitLive Service to develop a similar or competing product or service, (d) reverse engineer, decompile, disassemble or seek to access the source code, underlying ideas, algorithms, file formats or non-public APIs to the GitLive Service, except to the extent expressly permitted by Law (and then only with prior notice to GitLive), (e) modify or create derivative works of the GitLive Service, or copy any element of the GitLive Service (other than authorized copies of any GitLive Service software), (f) remove or obscure any proprietary notices in the GitLive Service, (g) publish benchmarks or performance information about the GitLive Service. GitLive reserves the right, but not the obligation, to monitor or review your use of the GitLive Service at any time and may investigate any suspected violations of this Agreement.
+
+1.4 Plugins. GitLive provides Plugins for use with the GitLive Service.
+
+
+
+2. Feedback
+If the Customer provides GitLive with any comments, suggestions or other feedback regarding the GitLive Service (“Feedback”), then GitLive may use such Feedback without restriction or obligation to the Customer.
+
+
+
+3. Confidentiality
+3.1. Confidential Information. For the purposes of this Agreement, the Parties define “Confidential Information” to mean any of the information disclosed under this Agreement that is designated by the disclosing party as proprietary or confidential, or that should be reasonably understood to be proprietary or confidential due to its nature and the circumstances of its disclosure. GitLive’s Confidential Information includes any technical, pricing, or performance information about the Service or related services. The Customer’s Confidential Information includes your Customer Data.
+
+3.2. Obligations. As a receiving party, each party will (a) hold in confidence and not disclose Confidential Information to third parties except as permitted in this Agreement, and (b) only use Confidential Information to fulfill its obligations and exercise its rights in this Agreement. The receiving party may disclose Confidential Information to its employees, agents, contractors, subcontractors, and other representatives having a legitimate need to know such Confidential Information, provided the receiving party remains responsible for their compliance with this Section 3 (Confidentiality) and such parties are bound to confidentiality obligations no less protective than this Section 3 (Confidentiality).
+
+3.3. Exclusions. These confidentiality obligations do not apply to information that the receiving party can document: (a) is or becomes public knowledge through no fault of the receiving party; (b) it rightfully knew or possessed prior to receipt under this Agreement; (c) it rightfully received from a third party without breach of confidentiality obligations; or (d) it independently developed without using the disclosing party’s Confidential Information. The receiving party may disclose Confidential Information if required by law, subpoena, or court order, provided (if permitted by law) it notifies the disclosing party in advance and cooperates in any effort to obtain confidential treatment.
+
+
+
+4. Fees
+4.1. Fees and invoicing may be described in each Order and/or the Usage Plan. Unless the Order or Usage Plan provides otherwise, all fees are payable in U.S. dollars and are due upon invoice issuance. GitLive refers to the Service pricing, invoicing-related information, and product-specific terms (e.g. concurrent user account sessions) contained within the Documentation as the “Usage Plan.” All fees and expenses are non-cancellable and non-refundable except as set out in this Agreement.
+
+4.2. Disputes. Unless the Usage Plan provides otherwise, the Customer will notify us of any good-faith invoice dispute within 15 days of the invoice date and reasonably cooperate with GitLive to resolve the dispute. If the Parties cannot resolve the dispute prior to the payment due date as described in Section 4.1 (Fees), either party may seek any available remedies. Undisputed amounts must be paid in full.
+
+4.3. Subscription Term. Each Subscription Term will automatically renew for successive periods equal in duration to the previous Subscription Term, unless either party gives the other party notice of non-renewal at least 30 days before the then current Subscription Term ends. Per-unit rates for renewals will be the same as in the prior Subscription Term for the same Service, unless GitLive notifies you in advance of an increase.
+
+‍
+
+5. Customer Data
+5.1. Use of Customer Data to Provide the Service. GitLive needs a limited license to Customer Data in order to provide the Service. For example, the Service and related features may create visualization aides, such as dashboards, charts, and graphs, which requires, among other rights, a right to create derivative works. Customer grants GitLive a non-exclusive, worldwide right to use, copy, store, transmit, display, modify, and create derivative works of the Customer Data, to the extent necessary to manage, improve, and provide the Service and related services, as well as to provide support to Customer.
+
+5.2. Rights in Customer Data. The Customer is solely responsible for the accuracy, content and legality of all Customer Data. The Customer represents and warrants to GitLive that (a) Customer has made all disclosures and has sufficient rights to use the Customer Data with the GitLive Service and grant the rights in Section 5.1 (Use of Customer Data) and (b) the provision and use of Customer Data does not infringe or violate applicable laws or the intellectual property, publicity, privacy or other rights of any third party.
+
+5.3. Prohibited Data. The Customer must not use the GitLive Service with Prohibited Data. The Customer acknowledges that the GitLive Service is not intended to meet any legal obligations for these uses, including HIPAA, and that GitLive is not a Business Associate as defined under HIPAA in connection with the GitLive Services. Notwithstanding anything else in this Agreement, GitLive has no liability for Prohibited Data.
+
+5.4. Personal Data. To the extent Personal Data is included in the Customer Data that GitLive processes on behalf of the Customer as a Data Processor in the course of providing the GitLive Services which relates to Data Subjects from the European Economic Area (EEA), the United Kingdom, and Switzerland, GitLive will enter into a Data Processing Addendum with Standard Contractual Clauses (“DPA”). To request a DPA please email support@git.live.
+
+
+
+6. Intellectual Property Rights
+6.1 GitLive Intellectual Property. The Customer agrees that GitLive retain all right, title and interest (including all patent, copyright, trademark, trade secret and other intellectual property rights) in and to the GitLive Service and any and all related and underlying technology and documentation and any derivative works, modifications or improvements of any of the foregoing, including as may incorporate Feedback. In addition to its other rights, GitLive may collect technical logs, data and learnings about the Customer’s use of the GitLive Service, which GitLive may use without restriction. Except as expressly set forth in this Agreement, no rights in the GitLive Service, or any GitLive technology are granted to the Customer.
+
+6.2 Customer Intellectual Property. GitLive claims no Intellectual Property Rights in and to your applications and software, Customer Data or any material you provide or otherwise transmit to the GitLive Service. However, you acknowledge and agree that in order for us to provide the GitLive Service, we will be inspecting, using, sending to GitLive servers, displaying and storing: (a) Customer Data; (b) information relating to Customer Data (such as the project name and metadata), environmental information; and (c) Personal Data, in all cases for the purposes of providing the GitLive Service. 
+
+‍
+
+7. Separate Platforms
+The Customer may choose to use the GitLive Service with Separate Platforms. Use of Separate Platforms is subject to the Customer’s agreement with the relevant provider and not this Agreement. If the Customer enables a Separate Platform with the GitLive Service, GitLive may access and exchange Customer Data with the Separate Platform on the Customer’s behalf. GitLive does not control and has no liability for Separate Platforms, including their security, functionality, operation, availability or interoperability or how the Separate Platforms or their providers use Customer Data (unless agreed in the Subscription Agreement for the GitLive Services themselves).
+
+‍
+
+8. User Data and Login Credentials ‍
+Your employees and contractors may use the GitLive Service on your behalf (each, a “User”). Each User may be required to provide a username, email address, password or other personal information to create and manage an account (“Login Credentials”) and must keep its Login Credentials confidential and not share them with anyone. GitLive uses and collects Login Credentials in accordance with the GitLive Privacy Policy. The Customer is responsible for its Users’ compliance with this Agreement and the actions taken through their accounts. The Customer will promptly notify GitLive if it becomes aware of any compromise of its Login Credentials.
+
+‍
+
+9. Termination and Suspension
+This Agreement will start on the Effective Date and will terminate upon either party’s notice to the other of termination of this Agreement (with or without cause) (“Term”). GitLive may also suspend this Agreement or the Customer’s use of the GitLive Service for no reason or any reason upon notice to the Customer. Upon termination, the Customer must cease using the GitLive Service, and, at GitLive’s request, return or destroy (and certify destruction of) any Documentation or other Confidential Information provided by GitLive. After termination, the Customer will have no further access to any Customer Data, and GitLive may delete Customer Data in accordance with its standard policies and procedures. GitLive will not have any liability resulting from termination or suspension of this Agreement in accordance with its terms. Sections 1.3 (Restrictions), 2 (Feedback), 3 (Confidentiality), 5 (Customer Data), 6 (Intellectual Property Rights), 7 (Separate Platforms) (with respect to disclaimers), 9 (Termination and Suspension), 10 (Disclaimers), 11 (Limitations of Liability), 16 (General), 17 (GitLive Entity and Law and Jurisdiction) and 18 (Definitions) will survive termination of this Agreement.
+
+‍
+
+10. Disclaimers
+The GitLive Service is provided “AS IS” and “AS AVAILABLE”, and use is at the Customer’s sole discretion and risk. GITLIVE DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTY OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, IN RELATION TO THE GITLIVE SERVICE OR THEIR USE. GITLIVE HAS NO WARRANTY, SUPPORT, MAINTENANCE, STORAGE, SERVICE LEVEL, SECURITY OR INDEMNITY OBLIGATIONS FOR THE GITLIVE SERVICE OR OTHERWISE UNDER THIS AGREEMENT.
+
+‍
+
+11. Limitations of Liability
+GITLIVE WILL NOT BE LIABLE FOR ANY LOSS OF USE, LOST OR INACCURATE DATA, FAILURE OF SECURITY MECHANISMS, INTERRUPTION OF BUSINESS, COSTS OF DELAY OR ANY OTHER DIRECT, INDIRECT, CONSEQUENTIAL, SPECIAL, EXEMPLARY, PUNITIVE, OR OTHER LIABILITY RELATED TO THE GITLIVE SERVICE OR THEIR USE, WHETHER IN CONTRACT, TORT OR ANY OTHER LEGAL THEORY. IF THE FOREGOING DISCLAIMER OF DIRECT DAMAGES IS NOT ENFORCEABLE AT LAW, GITLIVE’S ENTIRE AGGREGATE LIABILITY UNDER THIS AGREEMENT WILL BE LIMITED TO FIFTY U.S. DOLLARS (US $50.00). THESE LIMITATIONS OF LIABILITY WILL APPLY NOTWITHSTANDING ANY FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY AND TO THE FULLEST EXTENT PERMITTED BY LAW.
+
+‍
+
+12. Indemnification
+The Customer shall indemnify, defend and hold harmless GitLive from and against any and all claims, costs, damages, losses, liabilities and expenses (including reasonable attorneys’ fees and costs) arising out of or in connection with (a) the Customer’s use of the GitLive Service, (b) the Customer’s breach of this Agreement, and (c) any Customer Data. GitLive may participate in the defense and settlement of any claim with its own counsel and at its own expense. The Customer may not settle a claim without the prior written consent of GitLive (not to be unreasonably withheld).
+
+‍
+
+13. Third-Party Open Source
+The Plugins may incorporate third-party open source software (“Third-Party Open Source”), as listed in the Documentation or by GitLive upon request. To the extent required by the applicable open source license, that license will apply to the Third-Party Open Source on a stand-alone basis instead of this Agreement.
+
+‍
+
+14. Modifications to Agreement
+GitLive may modify this Agreement from time to time. GitLive will use reasonable efforts to notify the Customer of modifications as provided in Section 15 (Notices). The Customer may be required to click through the modified Agreement to show its acceptance and in any event the Customer’s continued use of the GitLive Service after the modification constitutes the Customer’s acceptance of the modifications. If the Customer does not agree to the modified Agreement, the Customer’s sole remedy is to terminate its use of the GitLive Service as described in Section 9 (Termination and Suspension).
+
+15. Notices
+GitLive may provide the Customer with notices and communications at the Customer’s email or physical address on file, through the GitLive Service or other reasonable means. Any notices or communications to GitLive must be sent to Gitlive Ltd,13 Freeland Park, Wareham Road, Lytchett Matravers, Poole, England, BH16 6FA, UK.
+
+‍
+
+16. General
+This Agreement is the parties’ entire agreement and supersedes any prior or contemporaneous agreements relating to its subject matter. Except as otherwise provided herein, all amendments or modifications must be in writing and signed by both parties. The words “including” and similar terms are to be construed without limitation. Failure to enforce any provision is not a waiver and all waivers must be in writing. If any provision is found to be unenforceable it (and related provisions) will be interpreted to best accomplish its intended purpose. The Customer may not assign, transfer or delegate any right or obligations under this Agreement and any non-permitted assignment is void. GitLive may assign this Agreement and its rights and obligations to any of its affiliates or in connection with a merger, reorganization, acquisition or other transfer of all or substantially all of its assets or voting securities to which this Agreement relates. GitLive will not be liable to the Customer for any delay or failure to perform any obligation under this Agreement if the delay or failure is due to unforeseen events that are beyond its reasonable control.
+
+‍
+17. GitLive Entity and Law and Jurisdiction
+17.1 GitLive Entity. The Customer is contracting with GitLive Ltd (a company registered in England and Wales under company number 12322164 whose registered office is at 13 Freeland Park, Wareham Road, Lytchett Matravers, Poole, England, BH16 6FA).
+
+17.2 Law.  Any dispute or claim arising out of or in connection with this Agreement shall be governed by and construed with the laws of England and Wales.
+
+17.2 Jurisdiction. The courts of England shall have exclusive jurisdiction to adjudicate any dispute arising out of or related to this Agreement.
+
+‍
+
+18. Definitions
+“GitLive Service” means GitLive’s proprietary cloud deployment of GitLive. The GitLive Service includes the Documentation and Plugins, but not Separate Platforms.
+
+“Customer Data” means any data, content or materials that the Customer submits to the GitLive Service.
+
+“Data Processor”, “Data Subject” and “process” have the meanings given to them under GDPR/UK GDRP.
+
+“Law” means all relevant local, state, federal and international laws, regulations and conventions, including those related to data privacy and data transfer, international communications  and export of technical or personal data.
+
+“Personal Data” means any information relating to an identified or identifiable natural person (data subject).
+
+“Plugins” means any on-premises software that GitLive provides to the Customer as part of the GitLive Service.
+
+“Prohibited Data” means any (a) special categories of data enumerated in European Union Regulation 2016/679, Article 9(1) or any successor legislation, (b) patient, medical or other protected health information regulated by the Health Insurance Portability and Accountability Act (as amended and supplemented) (“HIPAA”), (c) credit, debit or other payment card data or financial account information, including bank account numbers, (d) credentials granting access to an online account (e.g., username plus password), (e) social security numbers, driver’s license numbers or other government ID numbers, (f) other information subject to regulation or protection under specific Laws such as the Children’s Online Privacy Protection Act or Gramm-Leach-Bliley Act (or related rules or regulations) or (g) any data similar to the above protected under foreign or domestic Laws.
+
+“Separate Platform” means any platform, add-on, service or product not provided by GitLive as part of the GitLive Service and that the Customer elects to integrate or enable for use with the GitLive Service.
+

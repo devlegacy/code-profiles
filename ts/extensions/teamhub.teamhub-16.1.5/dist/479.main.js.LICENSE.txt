@@ -1,0 +1,25 @@
+/*!
+     * Microsoft Dynamic Proto Utility, 1.1.6
+     * Copyright (c) Microsoft and contributors. All rights reserved.
+     */
+
+/*!
+ * 1DS JS SDK Core, 3.2.6
+ * Copyright (c) Microsoft and contributors. All rights reserved.
+ * (Microsoft Internal Only)
+ */
+
+/*!
+ * Application Insights JavaScript SDK - Core, 2.8.6
+ * Copyright (c) Microsoft and contributors. All rights reserved.
+ */
+
+/*!
+ * Microsoft Application Insights JavaScript SDK - Shim functions, 2.0.1
+ * Copyright (c) Microsoft and contributors. All rights reserved.
+ */
+
+/*!
+ * Microsoft Dynamic Proto Utility, 1.1.6
+ * Copyright (c) Microsoft and contributors. All rights reserved.
+ */

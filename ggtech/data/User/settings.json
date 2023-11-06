@@ -1,0 +1,219 @@
+{
+  "breadcrumbs.enabled": false,
+  // "debug.openDebug": "openOnDebugBreak",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.fontFamily": "'Fira Code Retina', 'Dank Mono'",
+  "editor.fontLigatures": true,
+  "editor.fontWeight": "450",
+  "editor.guides.indentation": true,
+  "editor.lineHeight": 1.6,
+  "editor.minimap.enabled": false,
+  // "editor.quickSuggestions": {
+  //   "strings": true
+  // },
+  "editor.tokenColorCustomizations": {
+    "[*Light*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#000"
+          }
+        }
+      ]
+    },
+    "[*Dark*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#fff"
+          }
+        }
+      ]
+    },
+    "textMateRules": []
+  },
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    120
+  ],
+  "editor.smoothScrolling": true,
+  "editor.suggestSelection": "first",
+  "editor.wordWrap": "on",
+  "extensions.autoUpdate": true,
+  "explorer.compactFolders": false,
+  "explorer.excludeGitIgnore": false,
+  "explorer.openEditors.visible": 1,
+  "files.associations": {
+    // "*.js": "javascript",
+    ".env": "env"
+  },
+  // "files.autoSave": "afterDelay",
+  // "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "search.useGlobalIgnoreFiles": true,
+  "search.useIgnoreFiles": true,
+  "terminal.explorerKind": "external",
+  "terminal.external.windowsExec": "",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.fontFamily": "'Fira Code Retina', 'Dank Mono'",
+  "terminal.integrated.profiles.windows": {
+    "Git Bash": {
+      "source": "Git Bash",
+      "icon": "terminal-bash",
+      "path": [
+        "C:\\Program Files\\Git\\bin\\bash.exe"
+      ],
+      "args": [
+        "--login"
+      ]
+    },
+    "Windows Terminal": {
+      "path": "C:\\Users\\Devlegacy\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe"
+    },
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    }
+  },
+  "workbench.colorTheme": "Night Owl (No Italics)",
+  "workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#58cdff",
+    "editorBracketHighlight.foreground2": "#ff9ce3",
+    "editorBracketHighlight.foreground3": "#9161ff",
+    "editorBracketHighlight.foreground4": "#e7b454",
+    "editorBracketHighlight.foreground5": "#49c54f"
+  },
+  "workbench.editor.labelFormat": "short",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.list.smoothScrolling": true,
+  "workbench.list.horizontalScrolling": true,
+  "workbench.tree.indent": 20,
+  "workbench.settings.editor": "json",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "welcomePage",
+  "window.titleBarStyle": "custom",
+  "color-highlight.markerType": "dot-before",
+  "cSpell.enableFiletypes": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "go",
+    "handlebars",
+    "html",
+    "jade",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "latex",
+    "less",
+    "markdown",
+    "mdx",
+    "php",
+    "plaintext",
+    "python",
+    "pub",
+    "restructuredtext",
+    "rust",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "yml"
+  ],
+  "cSpell.language": "en,es",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false,
+    "yaml": true
+  },
+  "i18n-ally.translate.deepl.apiKey": "a45391ad-c867-3778-49af-93ff4b70caba",
+  "mongoRunner": {
+    "connections": [
+      {
+        "name": "GGTECH",
+        "url": "mongodb+srv://srojas:e2OGndJLYvcvzq8h@ggtech-drlff.mongodb.net/api?replicaSet=GGTECH-shard-0&readPreference=primary&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=GGTECH-shard-"
+      },
+      {
+        "name": "Local",
+        "url": "mongodb://localhost:27017"
+      }
+    ]
+  },
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "NOTE",
+    "DOC",
+    "DEBT",
+    "TRANSLATE"
+  ],
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "icon": "issue-opened",
+      "gutterIcon": true,
+      "iconColour": "#FFD580"
+    },
+    "BUG": {
+      "icon": "bug",
+      "gutterIcon": true,
+      "iconColour": "#FF6B6B"
+    },
+    "HACK": {
+      "icon": "tools",
+      "gutterIcon": true,
+      "iconColour": "#A3A3A3"
+    },
+    "FIXME": {
+      "icon": "flame",
+      "gutterIcon": true,
+      "iconColour": "#FF926B"
+    },
+    "NOTE": {
+      "icon": "note",
+      "gutterIcon": true,
+      "iconColour": "#6BC1FF"
+    },
+    "DOC": {
+      "icon": "book",
+      "gutterIcon": true,
+      "iconColour": "#86D2B5"
+    },
+    "DEBT": {
+      "icon": "issue-reopened",
+      "gutterIcon": true,
+      "iconColour": "#F06C9B"
+    },
+    "TRANSLATE": {
+      "icon": "globe",
+      "gutterIcon": true,
+      "iconColour": "#A29BFE"
+    }
+  },
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|\\s\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "editor.largeFileOptimizations": false,
+  "diffEditor.renderSideBySide": false,
+  "terminal.integrated.tabs.location": "left",
+  "terminal.integrated.tabs.enabled": false,
+}
