@@ -1,13 +1,13 @@
 {
   "breadcrumbs.enabled": false,
-  // "debug.openDebug": "openOnDebugBreak",
-  "diffEditor.ignoreTrimWhitespace": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "on",
+  "editor.defaultFormatter": null,
   "editor.fontFamily": "'Fira Code Retina', 'Dank Mono'",
   "editor.fontLigatures": true,
   "editor.fontWeight": "450",
+  "editor.formatOnSave": false,
   "editor.guides.indentation": true,
   "editor.lineHeight": 1.6,
   "editor.minimap.enabled": false,
@@ -37,6 +37,7 @@
     },
     "textMateRules": []
   },
+  "editor.trimAutoWhitespace": false,
   "editor.renderWhitespace": "all",
   "editor.rulers": [
     120
@@ -47,14 +48,14 @@
   "extensions.autoUpdate": true,
   "explorer.compactFolders": false,
   "explorer.excludeGitIgnore": false,
-  "explorer.openEditors.visible": 1,
   "files.associations": {
-    // "*.js": "javascript",
-    ".env": "env"
+    ".env*": "dotenv",
+    "*.css": "scss"
   },
   // "files.autoSave": "afterDelay",
   // "files.eol": "\n",
-  "files.trimTrailingWhitespace": true,
+  "files.trimTrailingWhitespace": false,
+  "files.trimFinalNewlines": false,
   "search.useGlobalIgnoreFiles": true,
   "search.useIgnoreFiles": true,
   "terminal.explorerKind": "external",
@@ -90,6 +91,12 @@
       "icon": "terminal-cmd"
     }
   },
+  "terminal.integrated.profiles.osx": {
+    "x86 zsh": {
+        "path": "/usr/bin/arch",
+        "args": ["-arch", "x86_64", "/bin/zsh"]
+    }
+  },
   "workbench.colorTheme": "Night Owl (No Italics)",
   "workbench.colorCustomizations": {
     "editorBracketHighlight.foreground1": "#58cdff",
@@ -108,36 +115,36 @@
   "workbench.startupEditor": "welcomePage",
   "window.titleBarStyle": "custom",
   "color-highlight.markerType": "dot-before",
-  "cSpell.enableFiletypes": [
-    "asciidoc",
-    "c",
-    "cpp",
-    "csharp",
-    "css",
-    "go",
-    "handlebars",
-    "html",
-    "jade",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "latex",
-    "less",
-    "markdown",
-    "mdx",
-    "php",
-    "plaintext",
-    "python",
-    "pub",
-    "restructuredtext",
-    "rust",
-    "scss",
-    "text",
-    "typescript",
-    "typescriptreact",
-    "vue",
-    "yml"
-  ],
+  "cSpell.enabledFileTypes": {
+    "asciidoc": true,
+    "c": true,
+    "cpp": true,
+    "csharp": true,
+    "css": true,
+    "go": true,
+    "handlebars": true,
+    "html": true,
+    "jade": true,
+    "javascript": true,
+    "javascriptreact": true,
+    "json": true,
+    "latex": true,
+    "less": true,
+    "markdown": true,
+    "mdx": true,
+    "php": true,
+    "plaintext": true,
+    "python": true,
+    "pub": true,
+    "restructuredtext": true,
+    "rust": true,
+    "scss": true,
+    "text": true,
+    "typescript": true,
+    "typescriptreact": true,
+    "vue": true,
+    "yml": true
+  },
   "cSpell.language": "en,es",
   "github.copilot.enable": {
     "*": true,
@@ -212,8 +219,19 @@
     }
   },
   "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|\\s\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-  "editor.largeFileOptimizations": false,
-  "diffEditor.renderSideBySide": false,
-  "terminal.integrated.tabs.location": "left",
   "terminal.integrated.tabs.enabled": false,
+  "dotenv.enableAutocloaking": false,
+  "github.copilot.editor.enableAutoCompletions": true,
+  // "diffEditor.hideUnchangedRegions.enabled": true,
+  // "diffEditor.renderSideBySide": true,
+  "material-icon-theme.folders.associations": {
+    "infrastructure": "Cluster",
+    "application": "app",
+    "domain": "core",
+    "errors": "error",
+    "persistence": "database"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "git.blame.editorDecoration.enabled": true,
+  "git.blame.statusBarItem.enabled": true,
 }
