@@ -1,0 +1,177 @@
+{
+	"name": "meteor-toolbox",
+	"displayName": "Meteor Toolbox",
+	"description": "Easily set up your Meteor environment (intelisense, run options and many other things).",
+	"version": "1.3.3",
+	"private": "true",
+	"publisher": "meteor-toolbox",
+	"license": "MIT",
+	"contributors": [
+		{
+			"name": "Matheus Castro"
+		},
+		{
+			"name": "Renan Castro"
+		}
+	],
+	"icon": "images/icon.png",
+	"engines": {
+		"vscode": "^1.66.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/matheusccastroo/vscode-meteor-toolbox.git"
+	},
+	"bugs": {
+		"url": "https://github.com/matheusccastroo/vscode-meteor-toolbox/issues"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"meteor",
+		"intelisense",
+		"atmosphere",
+		"packages"
+	],
+	"activationEvents": [
+		"workspaceContains:.meteor/release",
+		"onLanguage:spacebars",
+		"onLanguage:javascript"
+	],
+	"contributes": {
+		"configuration": [
+			{
+				"id": "meteorToolbox",
+				"title": "Settings for Meteor Toolbox extension",
+				"order": 2,
+				"properties": {
+					"conf.settingsEditor.meteorToolbox": {
+						"type": "object",
+						"order": 2,
+						"description": "Meteor Toolbox options.",
+						"properties": {
+							"auto": {
+								"type": "boolean",
+								"description": "Should we watch the packages folder and automatically update jsconfig.js"
+							},
+							"port": {
+								"type": "string",
+								"description": "Port to use when building run/debug options."
+							},
+							"additionalArgs": {
+								"type": "string",
+								"description": "Additional arguments to pass to meteor run/debug commands."
+							},
+							"meteorPackageDirs": {
+								"type": "string",
+								"description": "Colon-delimited list of local package directories to look in, besides the default packages folder. The path should be relative to the current workspace."
+							},
+							"ignoreDirsOnIndexing": {
+								"type": "string",
+								"description": "Colon-delimited list of directories to not index on the language server. The path should be relative to the current workspace."
+							}
+						},
+						"additionalProperties": false,
+						"default": {
+							"auto": true,
+							"port": "3000",
+							"additionalArgs": null,
+							"meteorPackageDirs": null,
+							"ignoreDirsOnIndexing": null
+						}
+					}
+				}
+			}
+		],
+		"commands": [
+			{
+				"category": "Configuration",
+				"command": "config.commands.meteorToolbox.toggleAutoRunPackagesWatcher",
+				"title": "Toggle Meteor Toolbox Auto Run"
+			},
+			{
+				"category": "Commands",
+				"command": "config.commands.meteorToolbox.runOnce",
+				"title": "Run Meteor Toolbox set up manually"
+			},
+			{
+				"category": "Commands",
+				"command": "config.commands.meteorToolbox.clearMeteorBuildCache",
+				"title": "Run clear meteor build cache"
+			},
+			{
+				"category": "Commands",
+				"command": "config.commands.meteorToolbox.regenerateLaunchJson",
+				"title": "Re-create Meteor Toolbox run/debug options"
+			}
+		],
+		"languages": [
+			{
+				"id": "spacebars",
+				"aliases": [
+					"Spacebars",
+					"spacebars"
+				],
+				"extensions": [
+					".html"
+				],
+				"icon": {
+					"light": "./images/blaze-icon.png",
+					"dark": "./images/blaze-icon.png"
+				},
+				"configuration": "./spacebars/language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "spacebars",
+				"scopeName": "text.html.spacebars",
+				"path": "./spacebars/syntaxes/spacebars.tmLanguage.json"
+			}
+		],
+		"typescriptServerPlugins": [
+			{
+				"name": "typescript-meteor-toolbox-plugin",
+				"enableForWorkspaceTypeScriptVersions": true
+			}
+		]
+	},
+	"main": "./extension.js",
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js",
+		"postinstall": "cd server && npm install && cd ../.."
+	},
+	"devDependencies": {
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.1",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.66.0",
+		"@vscode/test-electron": "^2.1.3",
+		"eslint": "^8.14.0",
+		"glob": "^8.0.1",
+		"mocha": "^9.2.2",
+		"typescript": "^4.8.4"
+	},
+	"dependencies": {
+		"deepmerge": "^4.2.2",
+		"json5": "^2.2.1",
+		"lodash": "^4.17.21",
+		"vscode-languageclient": "8.0.2",
+		"typescript-meteor-toolbox-plugin": "./typescript-meteor-toolbox-plugin"
+	},
+	"__metadata": {
+		"id": "31a1785a-3697-49c4-ba59-cd126cd2a9fc",
+		"publisherId": "b5e11dbb-9727-4ba0-808c-a64193638bee",
+		"publisherDisplayName": "Meteor Toolbox",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1705105921447,
+		"pinned": false,
+		"preRelease": false,
+		"size": 146579916
+	}
+}
