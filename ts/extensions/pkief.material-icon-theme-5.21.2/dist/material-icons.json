@@ -12330,8 +12330,7 @@
     "wrangler.toml": "wrangler",
     "wrangler.json": "wrangler",
     "wrangler.jsonc": "wrangler",
-    ".clinerules": "cline",
-    "command.ts": "command"
+    ".clinerules": "cline"
   },
   "languageIds": {
     "git": "git",
