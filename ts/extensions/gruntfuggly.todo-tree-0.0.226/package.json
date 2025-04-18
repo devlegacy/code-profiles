@@ -1199,7 +1199,8 @@
 		"updated": true,
 		"isPreReleaseVersion": false,
 		"installedTimestamp": 1681325844112,
-		"preRelease": false
+		"preRelease": false,
+		"size": 1621111
 	},
 	"dependencies": {
 		"@primer/octicons": "^17.0.0",

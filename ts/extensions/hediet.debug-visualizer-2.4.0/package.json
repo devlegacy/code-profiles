@@ -156,6 +156,7 @@
 		"isApplicationScoped": false,
 		"updated": false,
 		"installedTimestamp": 1670002415576,
-		"preRelease": false
+		"preRelease": false,
+		"size": 89917046
 	}
 }
