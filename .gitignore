@@ -8,6 +8,7 @@
 **/*LOG
 **/*LOG.old
 
+**/data/blob_storage
 **/data/Backups
 **/data/Cache
 **/data/CachedConfigurations
@@ -16,9 +17,12 @@
 **/data/CachedExtensionVSIXs
 **/data/CachedProfilesData
 **/data/Code Cache
+**/data/Crashpad
 **/data/Cookies
 **/data/Cookies-Journal
 **/data/DawnCache
+**/data/DawnGraphiteCache
+**/data/DawnWebGPUCache
 **/data/GPUCache
 **/data/Local Storage
 **/data/Network/Cookies
@@ -29,6 +33,10 @@
 **/data/Service Worker/ScriptCache
 **/data/Session Storage
 **/data/logs
+**/data/Network
+**/data/Service Worker
+**/data/Shared Dictionary
+**/data/shared_proto_db
 **/data/machineid
 **/data/Preferences
 **/data/storage.json
@@ -37,6 +45,10 @@
 **/data/User/History
 **/data/VideoDecodeStats
 **/data/WebStorage
+**/data/languagepacks.json
+**/data/Local State
+**/data/rapid_render.json
+**/data/SharedStorage
 
 **/extensions/.obsolete
 **/extensions/extensions.json
