@@ -160,7 +160,6 @@
     "scminput": false,
     "yaml": true
   },
-  "github.copilot.editor.enableAutoCompletions": true,
   "hediet.vscode-drawio.resizeImages": null,
   "i18n-ally.translate.deepl.apiKey": "a45391ad-c867-3778-49af-93ff4b70caba",
   // "javascript.inlayHints.parameterNames.enabled": "all",
@@ -263,5 +262,5 @@
     "GitHub.copilot",
     "GitHub.copilot-chat",
     "GitHub.vscode-pull-request-github"
-  ]
+  ],
 }
