@@ -2,11 +2,13 @@
   "breadcrumbs.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.bracketPairColorization.enabled": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "on",
+  "editor.formatOnSave": true,
+  // hide imports
+  // "editor.foldingImportsByDefault": true,
+  // "editor.foldingStrategy": "auto",
+  // "editor.defaultFoldingRangeProvider": null,
   // Typography
   // https://github.com/tonsky/FiraCode
   // https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions
@@ -41,24 +43,27 @@
     "textMateRules": []
   },
   "editor.renderWhitespace": "all",
-  "editor.rulers": [
-    120
-  ],
+  // "editor.rulers": [
+  //   120
+  // ],
   "editor.smoothScrolling": true,
   "editor.suggestSelection": "first",
   "editor.wordWrap": "on",
   "extensions.autoUpdate": true,
-  "explorer.compactFolders": false,
-  "explorer.excludeGitIgnore": false,
-  "explorer.openEditors.visible": 1,
-  // "files.associations": {
-  //   ".env*": "dotenv"
-  // },
+  // "explorer.compactFolders": false,
+  // "explorer.excludeGitIgnore": false,
+  // "explorer.openEditors.visible": 1,
+  "explorer.fileNesting.enabled": true,
+  "files.associations": {
+    ".env*": "dotenv"
+  },
   // "files.autoSave": "afterDelay",
   "files.eol": "\n",
   "files.trimTrailingWhitespace": true,
   "focus.opacity": "0.7",
   "focus.highlightRange": "block",
+  "git.blame.editorDecoration.enabled": true,
+  "git.blame.statusBarItem.enabled": true,
   "search.useGlobalIgnoreFiles": true,
   "search.useIgnoreFiles": true,
   "terminal.explorerKind": "external",
@@ -67,17 +72,14 @@
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   // "terminal.integrated.detectLocale": "off",
+  "terminal.integrated.env.osx": {},
   "terminal.integrated.fontFamily": "'Fira Code Retina', 'Dank Mono'",
   "terminal.integrated.profiles.windows": {
     "Git Bash": {
       "source": "Git Bash",
       "icon": "terminal-bash",
-      "path": [
-        "C:\\Program Files\\Git\\bin\\bash.exe"
-      ],
-      "args": [
-        "--login"
-      ]
+      "path": ["C:\\Program Files\\Git\\bin\\bash.exe"],
+      "args": ["--login"]
     },
     "Windows Terminal": {
       "path": "C:\\Users\\Devlegacy\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe"
@@ -95,6 +97,12 @@
       ],
       "args": [],
       "icon": "terminal-cmd"
+    }
+  },
+  "terminal.integrated.profiles.osx": {
+    "zsh": {
+      "path": "/bin/zsh",
+      "args": ["--login"]
     }
   },
   "terminal.integrated.tabs.enabled": false,
@@ -117,28 +125,7 @@
   // "window.autoDetectColorScheme": true,
   // "window.title": "🚀",
   "window.titleBarStyle": "custom",
-  // "cSpell.enableFiletypes": [
-  //   "css",
-  //   "go",
-  //   "handlebars",
-  //   "html",
-  //   "jade",
-  //   "javascript",
-  //   "javascriptreact",
-  //   "json",
-  //   "less",
-  //   "markdown",
-  //   "php",
-  //   "plaintext",
-  //   "python",
-  //   "pub",
-  //   "scss",
-  //   "text",
-  //   "typescript",
-  //   "typescriptreact",
-  //   "vue",
-  //   "yml"
-  // ],
+  // set default to prettier and config eslint just in project
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -151,198 +138,21 @@
   "[markdown]": {
     "files.trimTrailingWhitespace": false
   },
+  // set default to prettier and config eslint just in project
   "[typescript]": {
-    // "editor.defaultFormatter": "esbenp.prettier-vscode"
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  // "[typescript]": {
+  //   "editor.codeActionsOnSave": {
+  //     "source.fixAll.eslint": "explicit"
+  //   },
+  //   "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  // },
+  "bashIde.explainshellEndpoint": "http://localhost:5000",
   "cSpell.language": "en,es",
-  // "cSpell.userWords": [
-  // "adminer",
-  // "Airtable",
-  // "Algolia",
-  // "asint",
-  // "asintótica",
-  // "Autosize",
-  // "axios",
-  // "Behance",
-  // "binded",
-  // "browserslistrc",
-  // "Bulletpoint",
-  // "bulma",
-  // "bundlesize",
-  // "cabify",
-  // "Cademartori",
-  // "Cardinalidad",
-  // "Cardinalidades",
-  // "certbot",
-  // "chartjs",
-  // "checkboxes",
-  // "clippy",
-  // "clippyjs",
-  // "cloudinary",
-  // "Codeginiter",
-  // "codesanbox",
-  // "codesandbox",
-  // "concat",
-  // "contentful",
-  // "CPUs",
-  // "Cria",
-  // "cticamente",
-  // "Customised",
-  // "Customizations",
-  // "datepicker",
-  // "debounced",
-  // "deno",
-  // "Devexteam",
-  // "Devlegacy",
-  // "Dribbble",
-  // "Dropdown",
-  // "editorconfig",
-  // "Emojis",
-  // "entrypoint",
-  // "eslintignore",
-  // "especificado",
-  // "farfetch",
-  // "fastify",
-  // "favicons",
-  // "fieldname",
-  // "finalhandler",
-  // "Fira",
-  // "firestore",
-  // "fontawesome",
-  // "fortawesome",
-  // "frontmatter",
-  // "fullscreen",
-  // "geekshubs",
-  // "giflossy",
-  // "gitattributes",
-  // "Gitlab",
-  // "Graphcool",
-  // "Graphi",
-  // "graphiql",
-  // "gridsome",
-  // "Heur",
-  // "Heurísticas",
-  // "homescreen",
-  // "hostnames",
-  // "hoverable",
-  // "hoverwell",
-  // "hsla",
-  // "htmlhint",
-  // "htmlhintrc",
-  // "iamsaravieira",
-  // "import { h } from 'preact';\n",
-  // "inmantenible",
-  // "ipam",
-  // "jestrc",
-  // "joyent",
-  // "jpegtran",
-  // "kata",
-  // "keyframes",
-  // "Laravel",
-  // "letsencrypt",
-  // "lifecycle",
-  // "lightgray",
-  // "lightgrey",
-  // "linejoin",
-  // "linkify",
-  // "Liskov",
-  // "luxon",
-  // "lyft",
-  // "markdownlint",
-  // "Menlo",
-  // "Microservice",
-  // "microservices",
-  // "minification",
-  // "minified",
-  // "mnem",
-  // "mnemónico",
-  // "mogrify",
-  // "monospace",
-  // "mozjpeg",
-  // "msapplication",
-  // "nbproject",
-  // "Netlify",
-  // "Nginx",
-  // "nico",
-  // "nocheck",
-  // "nodir",
-  // "noopener",
-  // "noreferrer",
-  // "nositelinkssearchbox",
-  // "notranslate",
-  // "objecto",
-  // "opengraph",
-  // "originalname",
-  // "outcoming",
-  // "Overmind",
-  // "Pathed",
-  // "paulacademartori",
-  // "pgadmin",
-  // "PGDATA",
-  // "phpmyadmin",
-  // "Pinterest",
-  // "polyfill",
-  // "postgres",
-  // "postgresql",
-  // "postversion",
-  // "preact",
-  // "preconnect",
-  // "prefetch",
-  // "prettierrc",
-  // "preversion",
-  // "propriedades",
-  // "protótipo",
-  // "qualy",
-  // "reactjsgirls",
-  // "readonly",
-  // "reakit",
-  // "remcalc",
-  // "repo",
-  // "repos",
-  // "rerender",
-  // "rgba",
-  // "sandpack",
-  // "Scrollable",
-  // "scrollbar",
-  // "shamecaps",
-  // "sider",
-  // "sint",
-  // "sintácticamente",
-  // "speciality",
-  // "Stackbit",
-  // "sticas",
-  // "styleguide",
-  // "subfolder",
-  // "taxify",
-  // "tica",
-  // "tinymce",
-  // "toml",
-  // "translatey",
-  // "transpilation",
-  // "Truthy",
-  // "tsyringe",
-  // "unfollow",
-  // "unitcalc",
-  // "unmount",
-  // "Unstyled",
-  // "vcpus",
-  // "Vieira",
-  // "vmodal",
-  // "vuex",
-  // "WEATHERAPI",
-  // "webm",
-  // "webp",
-  // "webserver",
-  // "wifi",
-  // "woff",
-  // "youtube",
-  // "Zeit",
-  // "zopfli"
-  // ],
   "dotenv.enableAutocloaking": false,
   // "eslint.validate": ["typescript"],
-  "eslint.format.enable": true,
+  // "eslint.format.enable": true,
   "github.copilot.enable": {
     "*": true,
     "plaintext": true,
@@ -350,15 +160,17 @@
     "scminput": false,
     "yaml": true
   },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "hediet.vscode-drawio.resizeImages": null,
   "i18n-ally.translate.deepl.apiKey": "a45391ad-c867-3778-49af-93ff4b70caba",
   // "javascript.inlayHints.parameterNames.enabled": "all",
   // "javascript.inlayHints.variableTypes.enabled": true,
   // "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
   // "javascript.inlayHints.parameterTypes.enabled": true,
   // "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "material-icon-theme.files.associations": {
-    "**Command.ts": "command"
-  },
+  // https://github.com/microsoft/vscode/pull/174286
+  // https://github.com/PKief/vscode-material-icon-theme/issues/1892
+  // https://github.com/PKief/vscode-material-icon-theme/issues/330
   "material-icon-theme.folders.associations": {
     "infrastructure": "Cluster",
     "application": "app",
@@ -366,69 +178,90 @@
     "errors": "error",
     "persistence": "database"
   },
+  "makefile.configureOnOpen": true,
   // "typescript.inlayHints.parameterNames.enabled": "all",
   // "typescript.inlayHints.variableTypes.enabled": true,
   // "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   // "typescript.inlayHints.parameterTypes.enabled": true,
   // "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   // "typescript.tsserver.log": "verbose",
+  "typescript.tsserver.watchOptions": {
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriorityPolling",
+    "watchFile": "useFsEventsOnParentDirectory",
+    "synchronousWatchDirectory": true,
+    "excludeDirectories": ["./node_modules/**/*"]
+  },
+  "redhat.telemetry.enabled": true,
+  "svelte.enable-ts-plugin": true,
   "todo-tree.general.tags": [
-    "BUG",
-    "HACK",
-    "FIXME",
-    "TODO",
-    "NOTE",
-    "DOC",
-    "DEBT",
-    "TRANSLATE"
+    "BUG:",
+    "HACK:",
+    "FIXME:",
+    "TODO:",
+    "NOTE:",
+    "DOC:",
+    "DEBT:",
+    "TRANSLATE:",
+    "TIP:",
+    "REVIEW:"
   ],
   "todo-tree.highlights.customHighlight": {
-    "TODO": {
+    "TODO:": {
       "icon": "issue-opened",
       "gutterIcon": true,
       "iconColour": "#FFD580"
     },
-    "BUG": {
+    "BUG:": {
       "icon": "bug",
       "gutterIcon": true,
       "iconColour": "#FF6B6B"
     },
-    "HACK": {
+    "HACK:": {
       "icon": "tools",
       "gutterIcon": true,
       "iconColour": "#A3A3A3"
     },
-    "FIXME": {
+    "FIXME:": {
       "icon": "flame",
       "gutterIcon": true,
       "iconColour": "#FF926B"
     },
-    "NOTE": {
+    "NOTE:": {
       "icon": "note",
       "gutterIcon": true,
       "iconColour": "#6BC1FF"
     },
-    "DOC": {
+    "DOC:": {
       "icon": "book",
       "gutterIcon": true,
       "iconColour": "#86D2B5"
     },
-    "DEBT": {
+    "DEBT:": {
       "icon": "issue-reopened",
       "gutterIcon": true,
       "iconColour": "#F06C9B"
     },
-    "TRANSLATE": {
+    "TRANSLATE:": {
       "icon": "globe",
       "gutterIcon": true,
       "iconColour": "#A29BFE"
+    },
+    "TIP:": {
+      "icon": "light-bulb",
+      "gutterIcon": true,
+      "iconColour": "#FFCC00" // Un amarillo brillante para representar ideas o consejos útiles.
+    },
+    "REVIEW:": {
+      "icon": "eye",
+      "gutterIcon": true,
+      "iconColour": "#8A2BE2" // A violet color to represent the review process.
     }
   },
   "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|\\s\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-  "files.associations": {
-    ".env*": "dotenv"
-  },
-  "terminal.integrated.env.osx": {},
-  "GitLive.Special branches": "main|master|trunk|dev|develop|qa|test|release[-/].*",
-  "GitLive.Issue tracker integration": "Disabled"
+  "remote.defaultExtensionsIfInstalledLocally": [
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "GitHub.vscode-pull-request-github"
+  ]
 }
