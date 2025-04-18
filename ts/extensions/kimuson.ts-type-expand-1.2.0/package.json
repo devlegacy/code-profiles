@@ -1,0 +1,146 @@
+{
+	"name": "ts-type-expand",
+	"displayName": "ts-type-expand",
+	"description": "vscode extension for expand type of typescript",
+	"version": "1.2.0",
+	"license": "MIT",
+	"publisher": "kimuson",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/d-kimuson/ts-type-expand"
+	},
+	"keywords": [
+		"typescript",
+		"ts",
+		"compilerAPI",
+		"expand",
+		"tree"
+	],
+	"engines": {
+		"vscode": "^1.63.0",
+		"node": ">=16.0.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"activationEvents": [
+		"onView:ts-type-expand"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "Ts Type Expand",
+			"type": "object",
+			"properties": {
+				"ts-type-expand.validate": {
+					"type": "array",
+					"items": {
+						"anyOf": [
+							{
+								"type": "string"
+							}
+						]
+					},
+					"description": "Validate by specifying languageId",
+					"default": [
+						"typescript",
+						"typescriptreact",
+						"javascript",
+						"javascriptreact",
+						"vue"
+					]
+				},
+				"ts-type-expand.compactOptionalType": {
+					"type": "boolean",
+					"default": true,
+					"description": "Fold optional type"
+				},
+				"ts-type-expand.compactPropertyLength": {
+					"type": "number",
+					"default": 80,
+					"description": "Display {...} if property type text is longer than this length"
+				},
+				"ts-type-expand.directExpandArray": {
+					"type": "boolean",
+					"default": true,
+					"description": "Directly expand T for Array[T]"
+				},
+				"ts-type-expand.port": {
+					"type": "number",
+					"default": 54334,
+					"description": "Port used for communication with TS server."
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "ts-type-expand.restart",
+				"title": "Restart (ts-type-expand)",
+				"icon": {
+					"light": "resources/light/refresh.svg",
+					"dark": "resources/dark/refresh.svg"
+				}
+			},
+			{
+				"command": "ts-type-expand.copy",
+				"title": "Copy",
+				"icon": {
+					"light": "resources/light/copy.svg",
+					"dark": "resources/dark/copy.svg"
+				}
+			}
+		],
+		"views": {
+			"explorer": [
+				{
+					"id": "ts-type-expand",
+					"name": "TS Type Expand"
+				}
+			]
+		},
+		"menus": {
+			"view/title": [
+				{
+					"command": "ts-type-expand.restart",
+					"when": "view == ts-type-expand",
+					"group": "navigation"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "ts-type-expand.copy",
+					"when": "view == ts-type-expand",
+					"group": "inline"
+				}
+			]
+		},
+		"typescriptServerPlugins": [
+			{
+				"name": "ts-type-expand-plugin",
+				"enableForWorkspaceTypeScriptVersions": true
+			}
+		]
+	},
+	"extensionDependencies": [
+		"vscode.typescript-language-features"
+	],
+	"scripts": {},
+	"dependencies": {
+		"ts-type-expand-plugin": "file:ts-type-expand-plugin-0.0.2.tgz"
+	},
+	"__metadata": {
+		"id": "0d808b08-fa15-4c90-a2e6-57acb21cce83",
+		"publisherId": "c69630f5-b934-497b-a627-5d7ec49569f8",
+		"publisherDisplayName": "kimuson",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1715969964427,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery",
+		"size": 34704207
+	}
+}
