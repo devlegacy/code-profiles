@@ -7,6 +7,7 @@
 **/*.log
 **/*LOG
 **/*LOG.old
+**/*.js.map
 
 **/data/blob_storage
 **/data/Backups
@@ -23,6 +24,7 @@
 **/data/DawnCache
 **/data/DawnGraphiteCache
 **/data/DawnWebGPUCache
+**/data/IndexedDB
 **/data/GPUCache
 **/data/Local Storage
 **/data/Network/Cookies
@@ -52,3 +54,5 @@
 
 **/extensions/.obsolete
 **/extensions/extensions.json
+**/node_modules
+**/node_modules/**/node_modules
